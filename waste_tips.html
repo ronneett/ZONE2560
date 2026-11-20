@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>waste management tips</title>
+    <style>
+        :root {
+            --white: #FFFFFF;
+            --light-grey: #F4F5F6;
+            --fresh-blue: #3A98D8;
+            --amber: #B89E2D;
+            --charcoal: #1E293B;
+            --charcoal-rgb: 30, 41, 59;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--light-grey);
+            color: var(--charcoal);
+            font-family: Arial, sans-serif;
+        }
+
+        h1, h2, h3 { font-family: Arial, sans-serif; }
+        a { text-decoration: none; }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .utility-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 12px 30px;
+            background: var(--white);
+            box-shadow: 0 2px 4px rgba(var(--charcoal-rgb), 0.08);
+            font-size: 14px;
+        }
+
+        .left-text, .logo-center, .right-links { flex: 1; }
+        .left-text { font-weight: bold; }
+        .logo-center { text-align: center; }
+        .logo-center img { width: 58px; height: 58px; object-fit: contain; }
+        .right-links { text-align: right; white-space: nowrap; }
+        .right-links a {
+            margin-left: 14px;
+            color: var(--charcoal);
+            font-weight: bold;
+        }
+        .right-links a:hover { color: var(--fresh-blue); }
+
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            padding: 15px 20px;
+            background: var(--white);
+            box-shadow: 0 4px 6px rgba(var(--charcoal-rgb), 0.12);
+        }
+
+        .home-link, .nav-links a {
+            color: var(--fresh-blue);
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .home-link { font-size: 15px; }
+        .nav-links { display: flex; align-items: center; gap: 28px; }
+        .btn-report {
+            padding: 8px 20px;
+            border: 2px solid var(--fresh-blue);
+            border-radius: 20px;
+            background: var(--fresh-blue);
+            color: #FFEB3B !important;
+        }
+
+        .page-intro {
+            padding: 44px 20px;
+            background: var(--charcoal);
+            color: var(--white);
+            text-align: center;
+        }
+        .page-intro h1 { margin: 0 0 12px; font-size: clamp(28px, 4vw, 40px); }
+        .page-intro p { max-width: 760px; margin: 0 auto; line-height: 1.6; }
+
+        main {
+            width: min(1100px, calc(100% - 40px));
+            margin: 36px auto;
+        }
+        .tips-heading { margin-bottom: 20px; }
+        .tips-heading h2, .schedule-section h2 { margin: 0 0 8px; }
+        .tips-heading p, .schedule-section p { margin: 0; line-height: 1.6; }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: 18px;
+        }
+        .card-link { display: block; color: inherit; }
+        .tip-card {
+            height: 100%;
+            padding: 22px;
+            border-radius: 8px;
+            background: var(--white);
+            box-shadow: 0 3px 12px rgba(var(--charcoal-rgb), 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card-link:hover .tip-card {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(var(--charcoal-rgb), 0.16);
+        }
+        .tip-card h3 { margin: 0 0 10px; color: var(--fresh-blue); }
+        .tip-card p { margin: 0; line-height: 1.6; }
+
+        .schedule-section {
+            margin-top: 36px;
+            padding: 24px;
+            border-radius: 8px;
+            background: var(--white);
+            box-shadow: 0 3px 12px rgba(var(--charcoal-rgb), 0.08);
+        }
+        .schedule-link {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 11px 20px;
+            border-radius: 6px;
+            background: var(--fresh-blue);
+            color: var(--white);
+            font-weight: bold;
+        }
+        footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 30px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            border-top: 4px solid var(--fresh-blue);
+        }
+        .footer-links a {
+            color: var(--white);
+            margin-right: 20px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .footer-links a:hover { color: var(--amber); text-decoration: underline; }
+        .footer-logo img {
+            display: block;
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+        .utility-bar a:focus-visible, .main-nav a:focus-visible,
+        .card-link:focus-visible, .schedule-link:focus-visible, footer a:focus-visible {
+            outline: 3px solid var(--amber);
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 700px) {
+            .utility-bar { flex-wrap: wrap; justify-content: center; padding: 12px 16px; }
+            .left-text, .logo-center, .right-links { flex: 1 1 100%; text-align: center; }
+            .right-links { white-space: normal; }
+            .right-links a { display: inline-block; margin: 5px 8px; }
+            .main-nav { flex-wrap: wrap; gap: 14px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
+            .page-intro { padding: 34px 20px; }
+            footer { flex-direction: column; gap: 20px; text-align: center; }
+            .footer-links a { display: inline-block; margin: 5px 10px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="utility-bar">
+            <div class="left-text">The official website of Kawempe Division</div>
+            <div class="logo-center">
+                <img src="zone%202560%20logo.jpeg" alt="Zone 2560 Logo">
+            </div>
+            <div class="right-links">
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="admin%20login.html">Admin Login</a>
+            </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="home.html" class="home-link">Home</a>
+            <div class="nav-links">
+                <a href="waste_tips.html" aria-current="page">Waste Tips</a>
+                <a href="track.html">Track Reports</a>
+                <a href="report.html" class="btn-report">Report Garbage</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-intro">
+        <h1>Waste Management Tips &amp; Guidelines</h1>
+        <p>Explore our practical guidelines on safe waste handling across Kawempe, or check collection schedules for your parish.</p>
+    </section>
+
+    <main>
+        <div class="tips-heading">
+            <h2>Waste Management Handling Guidelines</h2>
+            <p>Select an article below to learn more about proper waste management practices:</p>
+        </div>
+
+        <div class="tips-grid">
+            <a href="article1.html" class="card-link">
+            <article class="tip-card">
+                <h3>1. Sorting & Segregation</h3>
+                <p>Separate wet organic food waste from dry plastics, glass, and metals at home before collection day to make recycling easier.</p>
+            </article>
+            </a>
+            <a href="article2.html" class="card-link">
+            <article class="tip-card">
+                <h3>2. Reduce, Reuse & Recycle</h3>
+                <p>Use reusable shopping bags instead of single-use polythene (kaveera) and sell clean plastic bottles to local recyclers.</p>
+            </article>
+        </a>
+        <a href="article3.html" class="card-link">
+            <article class="tip-card">
+                <h3>3. Composting Organic Waste</h3>
+                <p>Peelings and garden waste can be composted into nutrient-rich soil fertilizer instead of piling up in trenches.</p>
+            </article>
+        </a>
+        <a href="article4.html" class="card-link">
+            <article class="tip-card">   
+                <h3>4. Hazardous & Medical Waste</h3>
+                <p>Never mix broken glass, batteries, or used medical syringes with household garbage. Seal them safely.</p>
+            </article>
+        </a>
+        <a href="article5.html" class="card-link">
+            <article class="tip-card">       
+                <h3>5. Using Community Skips</h3>
+                <p>Place tied garbage bags inside the skip container rather than dumping waste on the ground beside it.</p>
+            </article>
+        </a>
+        </div>
+        
+        <section class="schedule-section">
+            <h2>Collection Schedules &amp; Skip Points</h2>
+            <p>Check the collection schedules for your parish and zone below. Ensure you place waste in the designated skip points on collection days.</p>
+            <a href="schedules.html" class="schedule-link">View Collection Schedules</a>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <span aria-hidden="true"> | </span>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="footer-logo">
+            <img src="zone%202560%20logo.jpeg" alt="Zone 2560 Logo">
+        </div>
+    </footer>
+</body>
+</html>

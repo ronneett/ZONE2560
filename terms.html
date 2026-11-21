@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terms of Use for the Zone2560 website.">
+    <title>Zone2560 - Terms of Use</title>
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            src: url('fonts/Roboto.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Poppins';
+            src: url('fonts/Poppins-Regular.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Poppins';
+            src: url('fonts/Poppins-Bold.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        :root {
+            --white: #FFFFFF;
+            --light-grey: #F4F5F6;
+            --fresh-blue: #3A98D8;
+            --amber: #FFEB3B;
+            --charcoal: #1E293B;
+            --charcoal-rgb: 30, 41, 59;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background: var(--light-grey);
+            color: var(--charcoal);
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        h1, h2 { font-family: 'Poppins', Arial, sans-serif; }
+        a { text-decoration: none; }
+        .site-header { position: sticky; top: 0; z-index: 10; }
+
+        .utility-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 12px 30px;
+            background: var(--white);
+            box-shadow: 0 2px 4px rgba(var(--charcoal-rgb), 0.08);
+            font-size: 14px;
+        }
+
+        .left-text, .logo-center, .right-links { flex: 1; }
+        .left-text { font-weight: 700; }
+        .logo-center { text-align: center; }
+        .logo-center img { width: 58px; height: 58px; object-fit: contain; }
+        .right-links { text-align: right; white-space: nowrap; }
+        .right-links a { margin-left: 14px; color: var(--charcoal); font-weight: 700; }
+        .right-links a:hover { color: var(--fresh-blue); }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            padding: 15px 20px;
+            background: var(--white);
+            box-shadow: 0 4px 6px rgba(var(--charcoal-rgb), 0.12);
+        }
+
+        .home-link, .nav-links a {
+            color: var(--fresh-blue);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .home-link { font-size: 15px; }
+        .nav-links { display: flex; align-items: center; gap: 28px; }
+        .btn-report {
+            padding: 8px 20px;
+            border: 2px solid var(--fresh-blue);
+            border-radius: 20px;
+            background: var(--fresh-blue);
+            color: var(--amber) !important;
+        }
+
+        .page-intro {
+            padding: 38px 20px;
+            background: var(--charcoal);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .page-intro h1 { margin: 0; font-size: clamp(28px, 4vw, 40px); }
+
+        main {
+            flex: 1;
+            width: min(950px, calc(100% - 40px));
+            margin: 36px auto;
+        }
+
+        .terms-card p { margin: 0 0 18px; }
+        .terms-card ul { padding-left: 24px; }
+        .terms-card li { margin-top: 12px; }
+        .terms-card li:first-child { margin-top: 0; }
+        .terms-card li p { margin-bottom: 0; }
+
+        .utility-bar a:focus-visible, .main-nav a:focus-visible, footer a:focus-visible {
+            outline: 3px solid var(--amber);
+            outline-offset: 3px;
+        }
+
+        footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 30px 20px;
+            border-top: 4px solid var(--fresh-blue);
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .footer-links a { margin-right: 20px; color: var(--white); font-size: 14px; }
+        .footer-links a:hover { color: var(--amber); text-decoration: underline; }
+        .footer-logo img { display: block; width: 72px; height: 72px; object-fit: contain; border-radius: 6px; }
+
+        @media (max-width: 700px) {
+            .utility-bar { flex-wrap: wrap; justify-content: center; padding: 12px 16px; }
+            .left-text, .logo-center, .right-links { flex: 1 1 100%; text-align: center; }
+            .right-links { white-space: normal; }
+            .right-links a { display: inline-block; margin: 5px 8px; }
+            .main-nav { flex-wrap: wrap; gap: 14px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
+            footer { flex-direction: column; text-align: center; }
+            .footer-links a { display: inline-block; margin: 5px 10px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="utility-bar">
+            <div class="left-text">The official website of Kawempe Division</div>
+            <div class="logo-center">
+                <img src="images/Zone2560%20logo.jpeg" alt="Zone 2560 Logo">
+            </div>
+            <div class="right-links">
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="admin%20login.html">Admin Login</a>
+            </div>
+        </div>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="home.html" class="home-link">Home</a>
+            <div class="nav-links">
+                <a href="waste_tips.html">Waste Tips</a>
+                <a href="track%20reports.html">Track Reports</a>
+                <a href="report%20garbage.html" class="btn-report">Report Garbage</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-intro">
+        <h1>Zone2560 Terms of Use</h1>
+    </section>
+
+    <main>
+        <article class="terms-card">
+            <p>Violation of any of the below rules is likely to lead to the immediate suspension of your account, meaning you will no longer be able to make reports on Zone2560. In some cases, breaking these rules could lead to legal action being taken against you. Please be aware that in exceptional circumstances, Zone2560 could be legally obliged to reveal your registration information and/or IP address to the authorities.</p>
+
+            <p>Keep your reports and updates civil, tasteful, and relevant to keeping Kawempe clean. Please:</p>
+
+            <ul>
+                <li><strong>No defamatory comments.</strong> A defamatory comment is one that is capable of damaging the reputation of a person or organization. If successfully sued, you could be held liable for considerable damages and costs.</li>
+                <li><strong>Do not implicate other people in your reports.</strong> Zone2560 should not be used for reports that implicate a specific person; you should never identify anyone as a wrongdoer by name, description, or address. Reports about anti-social behavior, illegal dumping by a specific individual, or criminal activity should not be reported here—please report those directly to the police.</li>
+                <li><strong>Do not post messages that are unlawful</strong>, harassing, defamatory, abusive, threatening, harmful, obscene, profane, sexually oriented, or racially offensive.</li>
+                <li><strong>Do not impersonate other people.</strong> Reports or comments deliberately intended to look as though they are coming from someone else may leave you liable to defamation law.</li>
+                <li><strong>Do not use the website as a place to air personal grievances</strong> about other people or organizations.</li>
+                <li><strong>No swearing.</strong> People of all backgrounds read and contribute to Zone2560. Please don’t use profanities or other words which might offend them.</li>
+                <li><strong>No spamming or flooding.</strong> Don’t repost the same garbage report, or very similar reports, more than once.</li>
+                <li><strong>Be aware that Zone2560 reports are displayed publicly on the website.</strong> For this reason, please do not include personal details such as your (or another person’s) address or telephone number in your initial report. This is for your own safety and that of everyone who uses this service.</li>
+            </ul>
+
+            <p>Talk to other people online with the same degree of civility as you would offline.</p>
+
+            <p>Where a user sends a message that is intended to harass, threaten, abuse or distress a member of the Zone2560 team, we will, at our discretion, cease communication. We may also ban the user from future use of the site.</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <span aria-hidden="true"> | </span>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html" aria-current="page">Terms of Use</a>
+        </div>
+        <div class="footer-logo">
+            <img src="images/Zone2560%20logo.jpeg" alt="Zone 2560 Logo">
+        </div>
+    </footer>
+</body>
+</html>

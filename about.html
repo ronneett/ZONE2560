@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Zone2560</title>
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            src: url('fonts/Roboto.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+        }
+
+        :root {
+            --white: #FFFFFF;
+            --light-grey: #F4F5F6;
+            --fresh-blue: #3A98D8;
+            --amber: #FFEB3B;
+            --charcoal: #1E293B;
+            --charcoal-rgb: 30, 41, 59;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background: var(--light-grey);
+            color: var(--charcoal);
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        h1, h2, h3 { font-family: 'Roboto', Arial, sans-serif; }
+        a { text-decoration: none; }
+        .site-header { position: sticky; top: 0; z-index: 10; }
+
+        .utility-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 12px 30px;
+            background: var(--white);
+            box-shadow: 0 2px 4px rgba(var(--charcoal-rgb), 0.08);
+            font-size: 14px;
+        }
+
+        .left-text, .logo-center, .right-links { flex: 1; }
+        .left-text { font-weight: 700; }
+        .logo-center { text-align: center; }
+        .logo-center img { width: 58px; height: 58px; object-fit: contain; }
+        .right-links { text-align: right; white-space: nowrap; }
+        .right-links a { margin-left: 14px; color: var(--charcoal); font-weight: 700; }
+        .right-links a:hover { color: var(--fresh-blue); }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            padding: 15px 20px;
+            background: var(--white);
+            box-shadow: 0 4px 6px rgba(var(--charcoal-rgb), 0.12);
+        }
+
+        .home-link, .nav-links a {
+            color: var(--fresh-blue);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .home-link { font-size: 15px; }
+        .nav-links { display: flex; align-items: center; gap: 28px; }
+        .btn-report {
+            padding: 8px 20px;
+            border: 2px solid var(--fresh-blue);
+            border-radius: 20px;
+            background: var(--fresh-blue);
+            color: var(--amber) !important;
+        }
+
+        .page-intro {
+            padding: 42px 20px;
+            background: var(--charcoal);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .page-intro h1 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 40px); }
+        .page-intro p { max-width: 720px; margin: 0 auto; line-height: 1.6; }
+
+        main { flex: 1; width: min(1000px, calc(100% - 40px)); margin: 36px auto; }
+        .about-card {
+            border-radius: 8px;
+            background: var(--white);
+            box-shadow: 0 3px 12px rgba(var(--charcoal-rgb), 0.08);
+        }
+
+        .about-card { padding: 28px; }
+        .about-card h2 { margin: 0 0 16px; color: var(--fresh-blue); font-size: 23px; }
+        .about-card h3 { margin: 22px 0 8px; font-size: 17px; }
+        .about-card p { margin: 0; line-height: 1.7; }
+        .about-card p + p { margin-top: 12px; }
+        .about-card ol { padding-left: 22px; line-height: 1.7; }
+        .about-card li + li { margin-top: 8px; }
+
+        .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+        .action-link {
+            display: inline-block;
+            padding: 11px 18px;
+            border: 2px solid var(--fresh-blue);
+            border-radius: 6px;
+            background: var(--fresh-blue);
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .action-link.secondary { background: transparent; color: var(--fresh-blue); }
+        .action-link:hover { background: var(--charcoal); border-color: var(--charcoal); color: var(--white); }
+
+        .contact-options { display: grid; gap: 12px; margin-top: 24px; }
+        .contact-options p { margin: 0; line-height: 1.6; }
+        .contact-options a { color: var(--fresh-blue); font-weight: 700; }
+        .contact-options a:hover { color: var(--charcoal); text-decoration: underline; }
+
+        .utility-bar a:focus-visible, .main-nav a:focus-visible,
+        .action-link:focus-visible, footer a:focus-visible {
+            outline: 3px solid var(--amber);
+            outline-offset: 3px;
+        }
+
+        footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 30px 20px;
+            border-top: 4px solid var(--fresh-blue);
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .footer-links a { margin-right: 20px; color: var(--white); font-size: 14px; }
+        .footer-links a:hover { color: var(--amber); text-decoration: underline; }
+        .footer-logo img { display: block; width: 72px; height: 72px; object-fit: contain; border-radius: 6px; }
+
+        @media (max-width: 700px) {
+            .utility-bar { flex-wrap: wrap; justify-content: center; padding: 12px 16px; }
+            .left-text, .logo-center, .right-links { flex: 1 1 100%; text-align: center; }
+            .right-links { white-space: normal; }
+            .right-links a { display: inline-block; margin: 5px 8px; }
+            .main-nav { flex-wrap: wrap; gap: 14px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
+            .about-card { padding: 20px; }
+            footer { flex-direction: column; text-align: center; }
+            .footer-links a { display: inline-block; margin: 5px 10px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="utility-bar">
+            <div class="left-text">The official website of Kawempe Division</div>
+            <div class="logo-center">
+                <img src="images/Zone2560%20logo.jpeg" alt="Zone 2560 Logo">
+            </div>
+            <div class="right-links">
+                <a href="about.html" aria-current="page">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="admin%20login.html">Admin Login</a>
+            </div>
+        </div>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="home.html" class="home-link">Home</a>
+            <div class="nav-links">
+                <a href="waste_tips.html">Waste Tips</a>
+                <a href="track%20reports.html">Track Reports</a>
+                <a href="report%20garbage.html" class="btn-report">Report Garbage</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-intro">
+        <h1>About Zone2560</h1>
+    </section>
+
+    <main>
+        <section class="about-card" aria-labelledby="about-project-title">
+            <h2 id="about-project-title">What is Zone2560?</h2>
+            <h3>Is this a council website?</h3>
+            <p>No, it isn’t but Zone2560 helps you send your garbage reports directly to the local authorities and collection teams responsible for keeping Kawempe clean.</p>
+            <p>We also publish these reports online, so that residents in the community can see what’s already been reported and track the cleanup progress.</p>
+
+            <h3>Then who are you? And why are you doing this?</h3>
+            <p>Zone2560 is an independent community project designed to make it easier to report garbage problems in your area, even if you don’t know exactly which department those reports should go to.</p>
+            <p>All you have to do is select your Parish or Zone, describe the problem, and submit your report. From there, we direct the issue to the people whose job it is to clean it up, ensuring Kawempe stays beautiful.</p>
+
+            <h2>Using Zone2560</h2>
+            <h3>How do I make a report?</h3>
+            <ol>
+                <li>Start at the homepage and click the “Report Garbage” button.</li>
+                <li>Select your Parish or Zone, choose a nearby landmark, and type in a description of the issue. You can also upload a photo. Then hit Submit.</li>
+                <li>You will be directed to a confirmation page, and a Reference Number will be generated. And that’s it.</li>
+            </ol>
+        </section>
+
+        <div class="actions">
+            <a class="action-link" href="report%20garbage.html">Report Garbage</a>
+            <a class="action-link secondary" href="waste_tips.html">Explore Waste Tips</a>
+        </div>
+        <section class="contact-options" aria-label="Contact us options">
+            <p><strong>I am a user</strong> and would like to contact the main administrator for the following: <a href="contact.html">Contact us</a></p>
+            <p><strong>I am a user</strong> and have a suggestion for improvement: <a href="contact.html">Contact us</a></p>
+            <p><strong>I want to volunteer</strong>: <a href="contact.html">Contact us</a></p>
+            <p><strong>I am a representative of local government</strong> and I want to involve our municipality:<br><a href="contact.html">Contact us</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="about.html" aria-current="page">About</a>
+            <span aria-hidden="true"> | </span>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+        </div>
+        <div class="footer-logo">
+            <img src="images/Zone2560%20logo.jpeg" alt="Zone 2560 Logo">
+        </div>
+    </footer>
+</body>
+</html>

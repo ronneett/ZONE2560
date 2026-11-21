@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Report - Zone2560</title>
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            src: url('fonts/Roboto.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Poppins';
+            src: url('fonts/Poppins-Regular.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Poppins';
+            src: url('fonts/Poppins-Bold.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        
+        :root {
+            --white: #FFFFFF;
+            --light-grey: #F4F5F6;
+            --fresh-blue: #3A98D8;
+            --amber: #FFEB3B;
+            --charcoal: #1E293B;
+            --charcoal-rgb: 30, 41, 59;
+            --fresh-green: #22C55E;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            background-color: var(--light-grey);
+            color: var(--charcoal);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 700;
+        }
+
+        a { text-decoration: none; }
+
+    
+        .site-header { position: sticky; top: 0; z-index: 20; }
+        .utility-bar {
+            background-color: var(--white); padding: 16px 30px;
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 14px; box-shadow: 0 2px 4px rgba(var(--charcoal-rgb),0.08);
+        }
+        .utility-bar .left-text { flex: 1; font-weight: bold; }
+        .logo-center { flex: 1; text-align: center; }
+        .logo-center img { width: 58px; height: 58px; object-fit: contain; }
+        .utility-bar .right-links { flex: 1; text-align: right; }
+        .utility-bar .right-links a { color: var(--charcoal); margin-left: 15px; font-weight: bold; }
+
+        .main-nav {
+            background-color: var(--white); padding: 15px 20px;
+            display: flex; justify-content: center; align-items: center; gap: 48px;
+            box-shadow: 0 4px 6px rgba(var(--charcoal-rgb),0.12);
+        }
+        .home-link { color: var(--fresh-blue); font-weight: bold; font-size: 15px; }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a { color: var(--fresh-blue); font-weight: bold; font-size: 14px; }
+        .btn-report {
+            background-color: var(--fresh-blue); color: #FFEB3B !important;
+            padding: 8px 20px; border-radius: 20px; border: 2px solid var(--fresh-blue);
+        }
+
+        
+        .track-wrapper {
+            flex: 1;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .main-card {
+            background: var(--white);
+            padding: 55px 40px;
+            min-height: 600px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(var(--charcoal-rgb), 0.16);
+        }
+
+        
+        .track-top-section {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 70px;
+            gap: 20px;
+        }
+
+        .track-title {
+            margin-right: auto;
+            text-align: left;
+            padding-left: 80px;
+        }
+
+        .track-title h2 {
+            font-size: 56px;
+            color: var(--fresh-blue);
+            margin: 0;
+            line-height: 1.2;
+            font-weight: bold;
+        }
+
+        
+        .search-container {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 0;
+            width: 100%;
+            max-width: 450px;
+            margin-right: -22px;
+            z-index: 1;
+            box-shadow: 0 6px 18px rgba(var(--charcoal-rgb), 0.12);
+        }
+
+        .search-container h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: var(--fresh-blue);
+        }
+
+        .search-container label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: var(--charcoal);
+            font-weight: bold;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-form input {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid var(--charcoal);
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .search-form button {
+            padding: 10px 20px;
+            background-color: var(--charcoal);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        
+        .graph-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            display: flex;
+            align-items: stretch;
+            gap: 20px;
+            height: 300px;
+        }
+
+        
+        .svg-wrapper {
+            flex: 1;
+            border-bottom: 2px solid var(--charcoal);
+            border-left: 2px solid var(--charcoal);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-bottom: 30px; 
+        }
+
+        
+        svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .line-path {
+            fill: none;
+            stroke-width: 2;
+            stroke-linejoin: round;
+        }
+        
+        .dot {
+            stroke: var(--white);
+            stroke-width: 2;
+        }
+
+        
+        .days-axis {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            bottom: -30px;
+            width: 100%;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--charcoal);
+            text-transform: uppercase;
+        }
+
+        
+        .status-labels {
+            flex: 0 0 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-top: 10px;
+            padding-bottom: 30px;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        
+        footer {
+            background-color: var(--charcoal); color: var(--white);
+            padding: 30px 20px; display: flex; justify-content: space-between; align-items: center;
+            border-top: 4px solid var(--fresh-blue);
+            margin-top: auto;
+        }
+        .footer-links a { color: var(--white); margin-right: 20px; font-size: 14px; }
+        .footer-logo img { width: 60px; height: 60px; object-fit: contain; }
+
+        
+        @media (max-width: 800px) {
+            .track-top-section { flex-direction: column; }
+            .search-container { max-width: 100%; }
+            .chart-container { flex-direction: column; height: auto; }
+            .svg-wrapper { height: 200px; margin-bottom: 20px; }
+            .status-labels { flex: 1; flex-direction: row; flex-wrap: wrap; padding-top: 20px; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADERS -->
+    <header class="site-header">
+        <div class="utility-bar">
+            <div class="left-text">This site is for reporting garbage in Kawempe only</div>
+            <div class="logo-center"><img src="images/Zone2560%20logo.jpeg" alt="Logo"></div>
+            <div class="right-links">
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="admin%20login.html">Admin Login</a>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <a href="home.html" class="home-link">Home</a>
+            <div class="nav-links">
+                <a href="waste_tips.html">Waste Tips</a>
+                <a href="track%20reports.html" aria-current="page">Track Reports</a>
+                <a href="report%20garbage.html" class="btn-report">Report Garbage</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT (One Single Container) -->
+    <div class="track-wrapper">
+        <div class="main-card">
+            
+            <!-- Top Section: Title & Search -->
+            <div class="track-top-section">
+                <div class="track-title">
+                    <h2>Reported<br>Queries</h2>
+                </div>
+                
+                <div class="search-container">
+                    <h3>Track your report</h3>
+                    <label for="ref-no">Reference no.</label>
+                    <form action="query.html" method="get" class="search-form">
+                        <input type="text" id="ref-no">
+                        <button type="submit">Go</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Bottom Section: The Graph -->
+            <div class="graph-area">
+                <div class="graph-title">Last 7 days</div>
+                
+                <div class="chart-container">
+                    <!-- The Graph Area (Left) -->
+                    <div class="svg-wrapper">
+                        <svg viewBox="0 0 700 200" preserveAspectRatio="none">
+                            <!-- Line 1 (Top) -->
+                            <path class="line-path" stroke="var(--fresh-blue)" d="M 0,150 L 100,150 L 200,100 L 300,50 L 400,90 L 500,100 L 600,140 L 700,160" />
+                            <!-- Line 2 (Middle) -->
+                            <path class="line-path" stroke="var(--amber)" d="M 0,180 L 100,180 L 200,130 L 300,90 L 400,140 L 500,150 L 600,140 L 700,180" />
+                            <!-- Line 3 (Bottom) -->
+                            <path class="line-path" stroke="var(--charcoal)" d="M 0,190 L 100,160 L 200,160 L 300,150 L 400,130 L 500,160 L 600,190 L 700,190" />
+                            <!-- Pending problems -->
+                            <path class="line-path" stroke="var(--fresh-green)" d="M 0,170 L 100,165 L 200,160 L 300,155 L 400,150 L 500,145 L 600,155 L 700,165" />
+                            
+                            <!-- Dots on Line 1 -->
+                            <circle class="dot" cx="100" cy="150" r="4" fill="var(--fresh-blue)"/>
+                            <circle class="dot" cx="200" cy="100" r="4" fill="var(--fresh-blue)"/>
+                            <circle class="dot" cx="300" cy="50" r="4" fill="var(--fresh-blue)"/>
+                            <circle class="dot" cx="400" cy="90" r="4" fill="var(--fresh-blue)"/>
+                            <circle class="dot" cx="500" cy="100" r="4" fill="var(--fresh-blue)"/>
+                            <circle class="dot" cx="600" cy="140" r="4" fill="var(--fresh-blue)"/>
+                            <!-- Dots on pending line -->
+                            <circle class="dot" cx="100" cy="165" r="4" fill="var(--fresh-green)"/>
+                            <circle class="dot" cx="200" cy="160" r="4" fill="var(--fresh-green)"/>
+                            <circle class="dot" cx="300" cy="155" r="4" fill="var(--fresh-green)"/>
+                            <circle class="dot" cx="400" cy="150" r="4" fill="var(--fresh-green)"/>
+                            <circle class="dot" cx="500" cy="145" r="4" fill="var(--fresh-green)"/>
+                            <circle class="dot" cx="600" cy="155" r="4" fill="var(--fresh-green)"/>
+                            <circle class="dot" cx="700" cy="165" r="4" fill="var(--fresh-green)"/>
+                        </svg>
+                        
+                        <div class="days-axis">
+                            <span>mon</span>
+                            <span>tue</span>
+                            <span>wed</span>
+                            <span>thu</span>
+                            <span>fri</span>
+                            <span>sat</span>
+                            <span>sun</span>
+                        </div>
+                    </div>
+
+                    <!-- The Status Labels (Right) -->
+                    <div class="status-labels">
+                        <div class="status-item">
+                            <div class="status-dot" style="background: var(--fresh-blue);"></div>
+                            <span>Problems reported / assigned</span>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-dot" style="background: var(--amber);"></div>
+                            <span>Under review / investigating problem</span>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-dot" style="background: var(--charcoal);"></div>
+                            <span>Resolved problem</span>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-dot" style="background: var(--fresh-green);"></div>
+                            <span>Pending problem</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About</a> <span aria-hidden="true">|</span>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="footer-logo">
+            <img src="images/Zone2560%20logo.jpeg" alt="Logo">
+        </div>
+    </footer>
+
+</body>
+</html>

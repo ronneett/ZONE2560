@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection Schedules | Zone2560</title>
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            src: url('fonts/Roboto.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+        }
+
+        :root {
+            --white: #FFFFFF;
+            --light-grey: #F4F5F6;
+            --fresh-blue: #3A98D8;
+            --amber: #B89E2D;
+            --charcoal: #1E293B;
+            --charcoal-rgb: 30, 41, 59;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--light-grey);
+            color: var(--charcoal);
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        h1, h2, h3 { font-family: 'Roboto', Arial, sans-serif; }
+        a { text-decoration: none; }
+
+        .site-header { position: sticky; top: 0; z-index: 10; }
+        .utility-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 12px 30px;
+            background: var(--white);
+            box-shadow: 0 2px 4px rgba(var(--charcoal-rgb), 0.08);
+            font-size: 14px;
+        }
+        .left-text, .logo-center, .right-links { flex: 1; }
+        .left-text { font-weight: bold; }
+        .logo-center { text-align: center; }
+        .logo-center img { width: 58px; height: 58px; object-fit: contain; }
+        .right-links { text-align: right; white-space: nowrap; }
+        .right-links a {
+            margin-left: 14px;
+            color: var(--charcoal);
+            font-weight: bold;
+        }
+        .right-links a:hover { color: var(--fresh-blue); }
+
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            padding: 15px 20px;
+            background: var(--white);
+            box-shadow: 0 4px 6px rgba(var(--charcoal-rgb), 0.12);
+        }
+        .home-link, .nav-links a {
+            color: var(--fresh-blue);
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .home-link { font-size: 15px; }
+        .nav-links { display: flex; align-items: center; gap: 28px; }
+        .btn-report {
+            padding: 8px 20px;
+            border: 2px solid var(--fresh-blue);
+            border-radius: 20px;
+            background: var(--fresh-blue);
+            color: #FFEB3B !important;
+        }
+
+        .page-intro {
+            padding: 38px 20px;
+            background: var(--charcoal);
+            color: var(--white);
+            text-align: center;
+        }
+        .page-intro h1 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 38px); }
+        .page-intro p { margin: 0; }
+
+        main { width: min(1100px, calc(100% - 40px)); margin: 36px auto; }
+        .schedule-card, .schedule-note {
+            padding: 24px;
+            border-radius: 8px;
+            background: var(--white);
+            box-shadow: 0 3px 12px rgba(var(--charcoal-rgb), 0.1);
+        }
+        .schedule-card h2 { margin: 0 0 8px; }
+        .last-updated { margin: 0 0 20px; color: #5B6472; }
+        .table-wrap { overflow-x: auto; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+        }
+        caption {
+            padding: 0 0 8px;
+            color: var(--charcoal);
+            font-weight: bold;
+            text-align: left;
+        }
+        th, td {
+            padding: 13px 15px;
+            border: 1px solid rgba(var(--charcoal-rgb), 0.18);
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background: var(--charcoal); color: var(--white); }
+        tbody tr:nth-child(even) { background: var(--light-grey); }
+
+        .schedule-note { margin-top: 24px; }
+        .schedule-note h2 { margin: 0 0 8px; font-size: 20px; }
+        .schedule-note p { margin: 0; line-height: 1.6; }
+        .action-link {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 11px 20px;
+            border-radius: 6px;
+            background: var(--fresh-blue);
+            color: var(--white);
+            font-weight: bold;
+        }
+        .utility-bar a:focus-visible, .main-nav a:focus-visible,
+        .action-link:focus-visible, footer a:focus-visible {
+            outline: 3px solid var(--amber);
+            outline-offset: 3px;
+        }
+
+        footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 30px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            border-top: 4px solid var(--fresh-blue);
+        }
+        .footer-links a {
+            color: var(--white);
+            margin-right: 20px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .footer-links a:hover { color: var(--amber); text-decoration: underline; }
+        .footer-logo img {
+            display: block;
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        @media (max-width: 700px) {
+            .utility-bar { flex-wrap: wrap; justify-content: center; padding: 12px 16px; }
+            .left-text, .logo-center, .right-links { flex: 1 1 100%; text-align: center; }
+            .right-links { white-space: normal; }
+            .right-links a { display: inline-block; margin: 5px 8px; }
+            .main-nav { flex-wrap: wrap; gap: 14px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
+            .schedule-card, .schedule-note { padding: 18px; }
+            footer { flex-direction: column; gap: 20px; text-align: center; }
+            .footer-links a { display: inline-block; margin: 5px 10px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="utility-bar">
+            <div class="left-text">The official website of Kawempe Division</div>
+            <div class="logo-center">
+                <img src="zone%202560%20logo.jpeg" alt="Zone 2560 Logo">
+            </div>
+            <div class="right-links">
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="admin%20login.html">Admin Login</a>
+            </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="home.html" class="home-link">Home</a>
+            <div class="nav-links">
+                <a href="waste_tips.html">Waste Tips</a>
+                <a href="schedules.html" aria-current="page">Collection Schedule</a>
+                <a href="track.html">Track Reports</a>
+                <a href="report.html" class="btn-report">Report Garbage</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-intro">
+        <h1>Collection Schedules</h1>
+        <p>Find collection days and times for parishes across Kawempe Division.</p>
+    </section>
+
+    <main>
+        <section class="schedule-card" aria-labelledby="schedule-heading">
+            <h2 id="schedule-heading">Kawempe Division Collection Schedules</h2>
+            <p class="last-updated"><small>Last updated: November 2026</small></p>
+            <div class="table-wrap">
+                <table>
+                    <caption>Collection days, time windows, and assigned collectors by parish or zone</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Parish / Zone</th>
+                            <th scope="col">Collection Days</th>
+                            <th scope="col">Time Window</th>
+                            <th scope="col">Assigned Collector</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bwaise I, II &amp; III</td>
+                            <td>Monday &amp; Thursday</td>
+                            <td>7:00 AM - 12:00 PM</td>
+                            <td>KCCA / Authorized Contractor</td>
+                        </tr>
+                        <tr>
+                            <td>Kalerwe &amp; Mulago</td>
+                            <td>Tuesday &amp; Friday</td>
+                            <td>6:30 AM - 11:30 AM</td>
+                            <td>KCCA Market Unit</td>
+                        </tr>
+                        <tr>
+                            <td>Katanga &amp; Makerere</td>
+                            <td>Wednesday &amp; Saturday</td>
+                            <td>8:00 AM - 1:00 PM</td>
+                            <td>Licensed Collector</td>
+                        </tr>
+                        <tr>
+                            <td>Kyebando, Kanyanya &amp; Komamboga</td>
+                            <td>Tuesday &amp; Friday</td>
+                            <td>8:00 AM - 2:00 PM</td>
+                            <td>Licensed Collector</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="schedule-note" aria-labelledby="schedule-note-heading">
+            <h2 id="schedule-note-heading">Please Note</h2>
+            <p>Collection schedules may change based on operational needs. Check official channels for updates. If your collection is missed, use the Report Garbage page to report it.</p>
+            <a href="report.html" class="action-link">Report Uncollected Garbage &rarr;</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <span aria-hidden="true"> | </span>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="footer-logo">
+            <img src="zone%202560%20logo.jpeg" alt="Zone 2560 Logo">
+        </div>
+    </footer>
+
+</body>
+</html>

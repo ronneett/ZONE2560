@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Reports - Zone2560 Admin</title>
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            src: url('fonts/Roboto.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Poppins';
+            src: url('fonts/Poppins-Bold.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        :root {
+            --white: #FFFFFF;
+            --light-grey: #F4F5F6;
+            --fresh-blue: #3A98D8;
+            --charcoal: #1E293B;
+            --muted: #64748B;
+            --border: #E2E8F0;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--light-grey);
+            color: var(--charcoal);
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        .layout { display: flex; min-height: 100vh; }
+
+        .sidebar {
+            display: flex;
+            flex: 0 0 250px;
+            flex-direction: column;
+            padding: 26px 18px;
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 8px 36px;
+            font: 700 18px 'Poppins', Arial, sans-serif;
+        }
+
+        .brand img {
+            width: 42px;
+            height: 42px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        .nav-label {
+            margin: 0 10px 10px;
+            color: #AAB6C7;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .sidebar nav { display: grid; gap: 6px; }
+
+        .sidebar nav a, .sidebar-bottom a {
+            display: block;
+            padding: 12px 14px;
+            border-radius: 7px;
+            color: #E2E8F0;
+            font-size: 14px;
+        }
+
+        .sidebar nav a:hover, .sidebar nav a[aria-current="page"] { background: #334155; }
+        .sidebar nav a[aria-current="page"] { box-shadow: inset 3px 0 var(--fresh-blue); }
+        .sidebar-bottom { margin-top: auto; }
+        .sidebar-bottom a { color: var(--fresh-blue); }
+        .sidebar-bottom a:hover { background: var(--fresh-blue); color: var(--white); }
+
+        main { flex: 1; min-width: 0; padding: 34px clamp(20px, 4vw, 56px); }
+        .page-header { margin-bottom: 22px; }
+        h1, h2 { font-family: 'Poppins', Arial, sans-serif; }
+        h1 { margin: 0; font-size: clamp(24px, 3vw, 32px); }
+        .page-header p { margin: 6px 0 0; color: var(--muted); }
+
+        .panel {
+            margin-bottom: 20px;
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--white);
+            box-shadow: 0 3px 10px rgba(30, 41, 59, 0.04);
+        }
+
+        h2 { margin: 0 0 16px; font-size: 18px; }
+
+        .filters {
+            display: grid;
+            grid-template-columns: minmax(180px, 1.5fr) repeat(2, minmax(150px, 1fr)) auto auto;
+            align-items: end;
+            gap: 12px;
+        }
+
+        .field label { display: block; margin-bottom: 7px; font-size: 13px; font-weight: 700; }
+        input, select {
+            width: 100%;
+            min-height: 40px;
+            padding: 9px 10px;
+            border: 1px solid #CBD5E1;
+            border-radius: 6px;
+            background: var(--white);
+            color: var(--charcoal);
+            font: inherit;
+        }
+
+        input:focus, select:focus { outline: 2px solid rgba(58, 152, 216, .35); border-color: var(--fresh-blue); }
+
+        button {
+            min-height: 40px;
+            padding: 9px 14px;
+            border: 0;
+            border-radius: 6px;
+            background: var(--fresh-blue);
+            color: var(--white);
+            font: inherit;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        button:hover { background: #277DB8; }
+        button.secondary { border: 1px solid var(--border); background: var(--white); color: var(--charcoal); }
+        button.secondary:hover { background: var(--light-grey); }
+
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; min-width: 900px; border-collapse: collapse; text-align: left; }
+        th, td { padding: 11px 9px; border-bottom: 1px solid var(--border); font-size: 13px; }
+        th { color: var(--muted); font-size: 11px; letter-spacing: .4px; text-transform: uppercase; }
+        tbody tr:last-child td { border-bottom: 0; }
+        td select { min-width: 120px; }
+        .report-id { font-weight: 700; white-space: nowrap; }
+
+        .status {
+            display: inline-block;
+            padding: 5px 9px;
+            border-radius: 20px;
+            background: #FEF3C7;
+            color: #92400E;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .status.in-progress { background: #DBEAFE; color: #1D4ED8; }
+        .status.resolved { background: #DCFCE7; color: #166534; }
+        .status-control { min-width: 120px; }
+        .row-update { min-height: 34px; padding: 7px 10px; }
+        .empty-row { display: none; padding: 24px; color: var(--muted); text-align: center; }
+        #preview-status { min-height: 20px; margin: 14px 0 0; color: #166534; font-size: 13px; }
+        a:focus-visible, button:focus-visible { outline: 3px solid #FDE047; outline-offset: 3px; }
+
+        @media (max-width: 1050px) {
+            .sidebar { flex-basis: 210px; }
+            .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+
+        @media (max-width: 620px) {
+            .layout { display: block; }
+            .sidebar { padding: 16px; }
+            .brand { margin: 0 4px 16px; }
+            .sidebar nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .nav-label { display: none; }
+            .sidebar-bottom { display: flex; gap: 8px; margin-top: 12px; }
+            .sidebar-bottom a { padding: 10px 8px; }
+            main { padding: 24px 16px; }
+            .panel { padding: 16px; }
+            .filters { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <a class="brand" href="admin%20dashboard.html">
+                <img src="images/Zone2560%20logo.jpeg" alt="">
+                <span>Zone2560 Admin</span>
+            </a>
+            <p class="nav-label">Workspace</p>
+            <nav aria-label="Admin sidebar">
+                <a href="admin%20dashboard.html">Overview</a>
+                <a href="manage%20reports.html" aria-current="page">Manage Reports</a>
+                <a href="manage%20content.html">Manage Content</a>
+                <a href="messages.html">Messages</a>
+            </nav>
+            <div class="sidebar-bottom">
+                <a href="home.html">Home</a>
+            </div>
+        </aside>
+
+        <main>
+            <header class="page-header">
+                <h1>Manage reports</h1>
+                <p>Filter community reports, assign a collector, and update report status.</p>
+            </header>
+
+            <section class="panel" aria-labelledby="filters-title">
+                <h2 id="filters-title">Filter reports</h2>
+                <form class="filters" id="filter-form">
+                    <div class="field">
+                        <label for="search">Search reports</label>
+                        <input id="search" type="search" placeholder="Report ID, issue, or location">
+                    </div>
+                    <div class="field">
+                        <label for="category-filter">Category</label>
+                        <select id="category-filter">
+                            <option value="">All categories</option>
+                            <option value="Illegal dumping">Illegal dumping</option>
+                            <option value="Clogged drainage">Clogged drainage</option>
+                            <option value="Street litter">Street litter</option>
+                            <option value="Illegal landfill">Illegal landfill</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="status-filter">Status</label>
+                        <select id="status-filter">
+                            <option value="">All statuses</option>
+                            <option value="New">New</option>
+                            <option value="In progress">In progress</option>
+                            <option value="Resolved">Resolved</option>
+                        </select>
+                    </div>
+                    <button type="submit">Apply filters</button>
+                    <button class="secondary" type="reset" id="clear-filters">Clear</button>
+                </form>
+            </section>
+
+            <section class="panel" aria-labelledby="reports-title">
+                <h2 id="reports-title">Community reports</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Report ID</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Assign to</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="report-rows">
+                            <tr data-category="Illegal dumping" data-status="New">
+                                <td class="report-id">Z2560-2026-20418</td>
+                                <td>Illegal dumping</td>
+                                <td>Industrial Area</td>
+                                <td>Nov 21, 2026</td>
+                                <td>
+                                    <select aria-label="Assign Z2560-2026-20418">
+                                        <option>Unassigned</option>
+                                        <option>KCCA / Authorized Contractor</option>
+                                        <option>KCCA Market Unit</option>
+                                        <option>Licensed Collector</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="status-control" aria-label="Status Z2560-2026-20418">
+                                        <option selected>New</option>
+                                        <option>In progress</option>
+                                        <option>Resolved</option>
+                                    </select>
+                                    <span class="status">New</span>
+                                </td>
+                                <td><button class="row-update" type="button" aria-label="Update Z2560-2026-20418">Update</button></td>
+                            </tr>
+                            <tr data-category="Clogged drainage" data-status="In progress">
+                                <td class="report-id">Z2560-2026-20417</td>
+                                <td>Clogged drainage</td>
+                                <td>Lule Zone</td>
+                                <td>Nov 20, 2026</td>
+                                <td>
+                                    <select aria-label="Assign Z2560-2026-20417">
+                                        <option>Unassigned</option>
+                                        <option selected>KCCA / Authorized Contractor</option>
+                                        <option>KCCA Market Unit</option>
+                                        <option>Licensed Collector</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="status-control" aria-label="Status Z2560-2026-20417">
+                                        <option>New</option>
+                                        <option selected>In progress</option>
+                                        <option>Resolved</option>
+                                    </select>
+                                    <span class="status in-progress">In progress</span>
+                                </td>
+                                <td><button class="row-update" type="button" aria-label="Update Z2560-2026-20417">Update</button></td>
+                            </tr>
+                            <tr data-category="Street litter" data-status="Resolved">
+                                <td class="report-id">Z2560-2026-20416</td>
+                                <td>Street litter</td>
+                                <td>Ttula</td>
+                                <td>Nov 20, 2026</td>
+                                <td>
+                                    <select aria-label="Assign Z2560-2026-20416">
+                                        <option>Unassigned</option>
+                                        <option>KCCA / Authorized Contractor</option>
+                                        <option>KCCA Market Unit</option>
+                                        <option selected>Licensed Collector</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="status-control" aria-label="Status Z2560-2026-20416">
+                                        <option>New</option>
+                                        <option>In progress</option>
+                                        <option selected>Resolved</option>
+                                    </select>
+                                    <span class="status resolved">Resolved</span>
+                                </td>
+                                <td><button class="row-update" type="button" aria-label="Update Z2560-2026-20416">Update</button></td>
+                            </tr>
+                            <tr data-category="Illegal landfill" data-status="In progress">
+                                <td class="report-id">Z2560-2026-20415</td>
+                                <td>Illegal landfill</td>
+                                <td>Katoogo</td>
+                                <td>Nov 19, 2026</td>
+                                <td>
+                                    <select aria-label="Assign Z2560-2026-20415">
+                                        <option>Unassigned</option>
+                                        <option>KCCA / Authorized Contractor</option>
+                                        <option>KCCA Market Unit</option>
+                                        <option selected>Licensed Collector</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="status-control" aria-label="Status Z2560-2026-20415">
+                                        <option>New</option>
+                                        <option selected>In progress</option>
+                                        <option>Resolved</option>
+                                    </select>
+                                    <span class="status in-progress">In progress</span>
+                                </td>
+                                <td><button class="row-update" type="button" aria-label="Update Z2560-2026-20415">Update</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="empty-row" id="empty-row">No reports match these filters.</p>
+                <p id="preview-status" role="status" aria-live="polite"></p>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>

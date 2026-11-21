@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - Zone2560 Admin</title>
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            src: url('fonts/Roboto.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Poppins';
+            src: url('fonts/Poppins-Bold.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        :root {
+            --white: #FFFFFF;
+            --light-grey: #F4F5F6;
+            --fresh-blue: #3A98D8;
+            --charcoal: #1E293B;
+            --muted: #64748B;
+            --border: #E2E8F0;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--light-grey);
+            color: var(--charcoal);
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        .layout { display: flex; min-height: 100vh; }
+
+        .sidebar {
+            display: flex;
+            flex: 0 0 250px;
+            flex-direction: column;
+            padding: 26px 18px;
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 8px 36px;
+            font: 700 18px 'Poppins', Arial, sans-serif;
+        }
+
+        .brand img {
+            width: 42px;
+            height: 42px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        .nav-label {
+            margin: 0 10px 10px;
+            color: #AAB6C7;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .sidebar nav { display: grid; gap: 6px; }
+
+        .sidebar nav a, .sidebar-bottom a {
+            display: block;
+            padding: 12px 14px;
+            border-radius: 7px;
+            color: #E2E8F0;
+            font-size: 14px;
+        }
+
+        .sidebar nav a:hover, .sidebar nav a[aria-current="page"] { background: #334155; }
+        .sidebar nav a[aria-current="page"] { box-shadow: inset 3px 0 var(--fresh-blue); }
+        .sidebar-bottom { margin-top: auto; }
+        .sidebar-bottom a { color: var(--fresh-blue); }
+        .sidebar-bottom a:hover { background: var(--fresh-blue); color: var(--white); }
+
+        main { flex: 1; min-width: 0; padding: 34px clamp(20px, 4vw, 56px); }
+        .page-header { margin-bottom: 24px; }
+        h1, h2 { font-family: 'Poppins', Arial, sans-serif; }
+        h1 { margin: 0; font-size: clamp(24px, 3vw, 32px); }
+        .page-header p { margin: 6px 0 0; color: var(--muted); }
+
+        .inbox {
+            max-width: 950px;
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--white);
+            box-shadow: 0 3px 10px rgba(30, 41, 59, 0.04);
+        }
+
+        .inbox-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .inbox-toolbar h2 { margin: 0; font-size: 18px; }
+        .sample-label { color: var(--muted); font-size: 12px; }
+
+        input {
+            width: min(320px, 100%);
+            min-height: 40px;
+            padding: 9px 12px;
+            border: 1px solid #CBD5E1;
+            border-radius: 6px;
+            font: inherit;
+        }
+
+        input:focus { outline: 2px solid rgba(58, 152, 216, .35); border-color: var(--fresh-blue); }
+        .message-list { display: grid; gap: 10px; }
+
+        .message {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .message summary {
+            display: grid;
+            grid-template-columns: minmax(150px, 1fr) minmax(150px, 1.3fr) auto auto;
+            align-items: center;
+            gap: 14px;
+            padding: 15px;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        .message summary::-webkit-details-marker { display: none; }
+        .message summary:hover { background: #F8FAFC; }
+        .sender { font-weight: 700; }
+        .subject { color: #334155; }
+        .received { color: var(--muted); font-size: 12px; white-space: nowrap; }
+
+        .badge {
+            padding: 5px 9px;
+            border-radius: 20px;
+            background: #DBEAFE;
+            color: #1D4ED8;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .badge.read { background: #F1F5F9; color: #64748B; }
+
+        .message-body {
+            padding: 0 15px 16px;
+            border-top: 1px solid var(--border);
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .message-body p { margin: 12px 0 0; }
+        .empty-state { display: none; padding: 24px 12px; color: var(--muted); text-align: center; }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        a:focus-visible, summary:focus-visible { outline: 3px solid #FDE047; outline-offset: 3px; }
+
+        @media (max-width: 900px) { .sidebar { flex-basis: 210px; } }
+
+        @media (max-width: 620px) {
+            .layout { display: block; }
+            .sidebar { padding: 16px; }
+            .brand { margin: 0 4px 16px; }
+            .sidebar nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .nav-label { display: none; }
+            .sidebar-bottom { display: flex; gap: 8px; margin-top: 12px; }
+            .sidebar-bottom a { padding: 10px 8px; }
+            main { padding: 24px 16px; }
+            .inbox { padding: 16px; }
+            .inbox-toolbar { align-items: stretch; flex-direction: column; }
+            input { width: 100%; }
+            .message summary { grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+            .subject { grid-column: 1 / -1; grid-row: 2; }
+            .received { grid-column: 1; grid-row: 3; }
+            .badge { grid-column: 2; grid-row: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <a class="brand" href="admin%20dashboard.html">
+                <img src="images/Zone2560%20logo.jpeg" alt="">
+                <span>Zone2560 Admin</span>
+            </a>
+            <p class="nav-label">Workspace</p>
+            <nav aria-label="Admin sidebar">
+                <a href="admin%20dashboard.html">Overview</a>
+                <a href="manage%20reports.html">Manage Reports</a>
+                <a href="manage%20content.html">Manage Content</a>
+                <a href="messages.html" aria-current="page">Messages</a>
+            </nav>
+            <div class="sidebar-bottom">
+                <a href="home.html">Home</a>
+            </div>
+        </aside>
+
+        <main>
+            <header class="page-header">
+                <h1>Messages</h1>
+                <p>Read community messages submitted through the contact form.</p>
+            </header>
+
+            <section class="inbox" aria-labelledby="inbox-title">
+                <div class="inbox-toolbar">
+                    <div>
+                        <h2 id="inbox-title">Contact inbox</h2>
+                        <span class="sample-label">Sample messages</span>
+                    </div>
+                    <label class="sr-only" for="message-search">Search messages</label>
+                    <input id="message-search" type="search" placeholder="Search sender or subject">
+                </div>
+
+                <div class="message-list" id="message-list">
+                    <details class="message">
+                        <summary>
+                            <span class="sender">Sarah N. &lt;sarah@example.com&gt;</span>
+                            <span class="subject">Collection schedule question</span>
+                            <time class="received" datetime="2026-11-21">Nov 21, 2026</time>
+                            <span class="badge">Unread</span>
+                        </summary>
+                        <div class="message-body">
+                            <p>Hello, could you confirm which day household waste is collected in Industrial Area? I want to make sure I put it out at the right time. Thank you.</p>
+                        </div>
+                    </details>
+
+                    <details class="message">
+                        <summary>
+                            <span class="sender">Michael K. &lt;michael@example.com&gt;</span>
+                            <span class="subject">Missed collection</span>
+                            <time class="received" datetime="2026-11-20">Nov 20, 2026</time>
+                            <span class="badge">Unread</span>
+                        </summary>
+                        <div class="message-body">
+                            <p>The collection on our street did not happen yesterday. Please let us know if there is a revised collection time for Lule Zone.</p>
+                        </div>
+                    </details>
+
+                    <details class="message">
+                        <summary>
+                            <span class="sender">Amina W. &lt;amina@example.com&gt;</span>
+                            <span class="subject">Recycling information</span>
+                            <time class="received" datetime="2026-11-19">Nov 19, 2026</time>
+                            <span class="badge read">Read</span>
+                        </summary>
+                        <div class="message-body">
+                            <p>Where can residents take clean plastic bottles for recycling? I would appreciate any information about nearby collection points.</p>
+                        </div>
+                    </details>
+                </div>
+                <p class="empty-state" id="empty-state">No messages match your search.</p>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>

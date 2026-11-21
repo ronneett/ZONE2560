@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Content - Zone2560 Admin</title>
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            src: url('fonts/Roboto.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Poppins';
+            src: url('fonts/Poppins-Bold.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        :root {
+            --white: #FFFFFF;
+            --light-grey: #F4F5F6;
+            --fresh-blue: #3A98D8;
+            --charcoal: #1E293B;
+            --muted: #64748B;
+            --border: #E2E8F0;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--light-grey);
+            color: var(--charcoal);
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        .layout { display: flex; min-height: 100vh; }
+
+        .sidebar {
+            display: flex;
+            flex: 0 0 250px;
+            flex-direction: column;
+            padding: 26px 18px;
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 8px 36px;
+            font: 700 18px 'Poppins', Arial, sans-serif;
+        }
+
+        .brand img {
+            width: 42px;
+            height: 42px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        .nav-label {
+            margin: 0 10px 10px;
+            color: #AAB6C7;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .sidebar nav { display: grid; gap: 6px; }
+
+        .sidebar nav a, .sidebar-bottom a {
+            display: block;
+            padding: 12px 14px;
+            border-radius: 7px;
+            color: #E2E8F0;
+            font-size: 14px;
+        }
+
+        .sidebar nav a:hover, .sidebar nav a[aria-current="page"] { background: #334155; }
+        .sidebar nav a[aria-current="page"] { box-shadow: inset 3px 0 var(--fresh-blue); }
+        .sidebar-bottom { margin-top: auto; }
+        .sidebar-bottom a { color: var(--fresh-blue); }
+        .sidebar-bottom a:hover { background: var(--fresh-blue); color: var(--white); }
+
+        main { flex: 1; min-width: 0; padding: 34px clamp(20px, 4vw, 56px); }
+        .page-header { margin-bottom: 22px; }
+        h1, h2 { font-family: 'Poppins', Arial, sans-serif; }
+        h1 { margin: 0; font-size: clamp(24px, 3vw, 32px); }
+        .page-header p { margin: 6px 0 0; color: var(--muted); }
+
+        .editor-card {
+            margin-bottom: 20px;
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--white);
+            box-shadow: 0 3px 10px rgba(30, 41, 59, 0.04);
+        }
+
+        .card-heading { margin-bottom: 18px; }
+        h2 { margin: 0; font-size: 18px; }
+        .card-heading p { margin: 5px 0 0; color: var(--muted); font-size: 13px; }
+        .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+        .field { min-width: 0; }
+        .field label { display: block; margin-bottom: 7px; font-size: 13px; font-weight: 700; }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #CBD5E1;
+            border-radius: 6px;
+            background: var(--white);
+            color: var(--charcoal);
+            font: inherit;
+        }
+
+        textarea { min-height: 78px; resize: vertical; line-height: 1.5; }
+        .field input + label { margin-top: 12px; }
+        input:focus, textarea:focus { outline: 2px solid rgba(58, 152, 216, .35); border-color: var(--fresh-blue); }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; min-width: 680px; border-collapse: collapse; text-align: left; }
+        th, td { padding: 10px 8px; border-bottom: 1px solid var(--border); }
+        th { color: var(--muted); font-size: 11px; text-transform: uppercase; }
+        td input { min-width: 120px; }
+        .category-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+
+        .save-button {
+            margin-top: 16px;
+            padding: 10px 16px;
+            border: 0;
+            border-radius: 6px;
+            background: var(--fresh-blue);
+            color: #FFEB3B;
+            font: inherit;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: not-allowed;
+        }
+
+        a:focus-visible { outline: 3px solid #FDE047; outline-offset: 3px; }
+
+        @media (max-width: 900px) { .sidebar { flex-basis: 210px; } }
+
+        @media (max-width: 620px) {
+            .layout { display: block; }
+            .sidebar { padding: 16px; }
+            .brand { margin: 0 4px 16px; }
+            .sidebar nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .nav-label { display: none; }
+            .sidebar-bottom { display: flex; gap: 8px; margin-top: 12px; }
+            .sidebar-bottom a { padding: 10px 8px; }
+            main { padding: 24px 16px; }
+            .editor-card { padding: 16px; }
+            .field-grid, .category-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <a class="brand" href="admin%20dashboard.html">
+                <img src="images/Zone2560%20logo.jpeg" alt="">
+                <span>Zone2560 Admin</span>
+            </a>
+            <p class="nav-label">Workspace</p>
+            <nav aria-label="Admin sidebar">
+                <a href="admin%20dashboard.html">Overview</a>
+                <a href="admin%20dashboard.html#reports">Manage Reports</a>
+                <a href="manage%20content.html" aria-current="page">Manage Content</a>
+                <a href="messages.html">Messages</a>
+            </nav>
+            <div class="sidebar-bottom">
+                <a href="home.html">Home</a>
+            </div>
+        </aside>
+
+        <main>
+            <header class="page-header">
+                <h1>Manage content</h1>
+                <p>Edit the public waste tips, collection schedules, and report categories.</p>
+            </header>
+
+            <section class="editor-card" aria-labelledby="tips-title">
+                <div class="card-heading">
+                    <h2 id="tips-title">Waste tips</h2>
+                    <p>Edit tip titles and their short descriptions.</p>
+                </div>
+                <div class="field-grid">
+                    <div class="field">
+                        <label for="tip-sorting">Tip 1 title</label>
+                        <input id="tip-sorting" value="Sorting &amp; Segregation">
+                        <label for="tip-sorting-description">Description</label>
+                        <textarea id="tip-sorting-description">Separate wet organic waste from dry recyclables before collection.</textarea>
+                    </div>
+                    <div class="field">
+                        <label for="tip-recycling">Tip 2 title</label>
+                        <input id="tip-recycling" value="Reduce, Reuse &amp; Recycle">
+                        <label for="tip-recycling-description">Description</label>
+                        <textarea id="tip-recycling-description">Reduce waste, reuse useful items, and sort accepted materials for recycling.</textarea>
+                    </div>
+                    <div class="field">
+                        <label for="tip-composting">Tip 3 title</label>
+                        <input id="tip-composting" value="Composting Organic Waste">
+                        <label for="tip-composting-description">Description</label>
+                        <textarea id="tip-composting-description">Compost suitable food scraps and garden waste to create a soil improver.</textarea>
+                    </div>
+                    <div class="field">
+                        <label for="tip-hazardous">Tip 4 title</label>
+                        <input id="tip-hazardous" value="Hazardous &amp; Medical Waste">
+                        <label for="tip-hazardous-description">Description</label>
+                        <textarea id="tip-hazardous-description">Keep hazardous and medical waste separate and follow approved disposal guidance.</textarea>
+                    </div>
+                    <div class="field">
+                        <label for="tip-skips">Tip 5 title</label>
+                        <input id="tip-skips" value="Using Community Skips">
+                        <label for="tip-skips-description">Description</label>
+                        <textarea id="tip-skips-description">Use the skip assigned to your area and follow posted disposal instructions.</textarea>
+                    </div>
+                </div>
+                <button class="save-button" type="button" disabled>Save</button>
+            </section>
+
+            <section class="editor-card" aria-labelledby="schedules-title">
+                <div class="card-heading">
+                    <h2 id="schedules-title">Collection schedules</h2>
+                    <p>Edit collection days, time windows, and assigned collectors.</p>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Parish / Zone</th>
+                                <th scope="col">Collection days</th>
+                                <th scope="col">Time window</th>
+                                <th scope="col">Assigned collector</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input aria-label="Parish or zone 1" value="Industrial Area"></td>
+                                <td><input aria-label="Collection days 1" value="Monday &amp; Thursday"></td>
+                                <td><input aria-label="Time window 1" value="7:00 AM - 12:00 PM"></td>
+                                <td><input aria-label="Assigned collector 1" value="KCCA / Authorized Contractor"></td>
+                            </tr>
+                            <tr>
+                                <td><input aria-label="Parish or zone 2" value="Kalerwe &amp; Mulago"></td>
+                                <td><input aria-label="Collection days 2" value="Tuesday &amp; Friday"></td>
+                                <td><input aria-label="Time window 2" value="6:30 AM - 11:30 AM"></td>
+                                <td><input aria-label="Assigned collector 2" value="KCCA Market Unit"></td>
+                            </tr>
+                            <tr>
+                                <td><input aria-label="Parish or zone 3" value="Katanga &amp; Makerere"></td>
+                                <td><input aria-label="Collection days 3" value="Wednesday &amp; Saturday"></td>
+                                <td><input aria-label="Time window 3" value="8:00 AM - 1:00 PM"></td>
+                                <td><input aria-label="Assigned collector 3" value="Licensed Collector"></td>
+                            </tr>
+                            <tr>
+                                <td><input aria-label="Parish or zone 4" value="Kyebando, Katoogo &amp; Komamboga"></td>
+                                <td><input aria-label="Collection days 4" value="Tuesday &amp; Friday"></td>
+                                <td><input aria-label="Time window 4" value="8:00 AM - 2:00 PM"></td>
+                                <td><input aria-label="Assigned collector 4" value="Licensed Collector"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button class="save-button" type="button" disabled>Save</button>
+            </section>
+
+            <section class="editor-card" aria-labelledby="categories-title">
+                <div class="card-heading">
+                    <h2 id="categories-title">Report categories</h2>
+                    <p>Edit the issue categories available for garbage reports.</p>
+                </div>
+                <div class="category-grid">
+                    <div class="field">
+                        <label for="category-dumping">Category 1</label>
+                        <input id="category-dumping" value="Illegal dumping">
+                    </div>
+                    <div class="field">
+                        <label for="category-drainage">Category 2</label>
+                        <input id="category-drainage" value="Clogged drainage">
+                    </div>
+                    <div class="field">
+                        <label for="category-litter">Category 3</label>
+                        <input id="category-litter" value="Street litter">
+                    </div>
+                    <div class="field">
+                        <label for="category-landfill">Category 4</label>
+                        <input id="category-landfill" value="Illegal landfill">
+                    </div>
+                </div>
+                <button class="save-button" type="button" disabled>Save</button>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>

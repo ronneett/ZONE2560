@@ -26,12 +26,3 @@
     font-style: normal;
     font-weight: 100 900;
 }
-
-:root {
-    --white: #FFFFFF;
-    --light-grey: #F4F5F6;
-    --fresh-blue: #3A98D8;
-    --amber: #FFEB3B;
-    --charcoal: #1E293B;
-    --charcoal-rgb: 30, 41, 59;
-}

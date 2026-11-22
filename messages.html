@@ -7,22 +7,14 @@
     <link rel="stylesheet" href="style.css">
     <style>
 
-        :root {
-            --white: #FFFFFF;
-            --light-grey: #F4F5F6;
-            --fresh-blue: #3A98D8;
-            --charcoal: #1E293B;
-            --muted: #64748B;
-            --border: #E2E8F0;
-        }
 
         * { box-sizing: border-box; }
 
         body {
             margin: 0;
             min-height: 100vh;
-            background: var(--light-grey);
-            color: var(--charcoal);
+            background: #F4F5F6;
+            color: #1E293B;
             font-family: 'Roboto', Arial, sans-serif;
         }
 
@@ -34,8 +26,8 @@
             flex: 0 0 250px;
             flex-direction: column;
             padding: 26px 18px;
-            background: var(--charcoal);
-            color: var(--white);
+            background: #1E293B;
+            color: #FFFFFF;
         }
 
         .brand {
@@ -73,23 +65,23 @@
         }
 
         .sidebar nav a:hover, .sidebar nav a[aria-current="page"] { background: #334155; }
-        .sidebar nav a[aria-current="page"] { box-shadow: inset 3px 0 var(--fresh-blue); }
+        .sidebar nav a[aria-current="page"] { box-shadow: inset 3px 0 #3A98D8; }
         .sidebar-bottom { margin-top: auto; }
-        .sidebar-bottom a { color: var(--fresh-blue); }
-        .sidebar-bottom a:hover { background: var(--fresh-blue); color: var(--white); }
+        .sidebar-bottom a { color: #3A98D8; }
+        .sidebar-bottom a:hover { background: #3A98D8; color: #FFFFFF; }
 
         main { flex: 1; min-width: 0; padding: 34px clamp(20px, 4vw, 56px); }
         .page-header { margin-bottom: 24px; }
         h1, h2 { font-family: 'Poppins', Arial, sans-serif; }
         h1 { margin: 0; font-size: clamp(24px, 3vw, 32px); }
-        .page-header p { margin: 6px 0 0; color: var(--muted); }
+        .page-header p { margin: 6px 0 0; color: #64748B; }
 
         .inbox {
             max-width: 950px;
             padding: 22px;
-            border: 1px solid var(--border);
+            border: 1px solid #E2E8F0;
             border-radius: 10px;
-            background: var(--white);
+            background: #FFFFFF;
             box-shadow: 0 3px 10px rgba(30, 41, 59, 0.04);
         }
 
@@ -102,7 +94,7 @@
         }
 
         .inbox-toolbar h2 { margin: 0; font-size: 18px; }
-        .sample-label { color: var(--muted); font-size: 12px; }
+        .sample-label { color: #64748B; font-size: 12px; }
 
         input {
             width: min(320px, 100%);
@@ -113,11 +105,11 @@
             font: inherit;
         }
 
-        input:focus { outline: 2px solid rgba(58, 152, 216, .35); border-color: var(--fresh-blue); }
+        input:focus { outline: 2px solid rgba(58, 152, 216, .35); border-color: #3A98D8; }
         .message-list { display: grid; gap: 10px; }
 
         .message {
-            border: 1px solid var(--border);
+            border: 1px solid #E2E8F0;
             border-radius: 8px;
             overflow: hidden;
         }
@@ -136,7 +128,7 @@
         .message summary:hover { background: #F8FAFC; }
         .sender { font-weight: 700; }
         .subject { color: #334155; }
-        .received { color: var(--muted); font-size: 12px; white-space: nowrap; }
+        .received { color: #64748B; font-size: 12px; white-space: nowrap; }
 
         .badge {
             padding: 5px 9px;
@@ -152,14 +144,14 @@
 
         .message-body {
             padding: 0 15px 16px;
-            border-top: 1px solid var(--border);
+            border-top: 1px solid #E2E8F0;
             color: #475569;
             font-size: 14px;
             line-height: 1.6;
         }
 
         .message-body p { margin: 12px 0 0; }
-        .empty-state { display: none; padding: 24px 12px; color: var(--muted); text-align: center; }
+        .empty-state { display: none; padding: 24px 12px; color: #64748B; text-align: center; }
         .sr-only {
             position: absolute;
             width: 1px;

@@ -5,23 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zone2560 - Home</title>
     <link rel="stylesheet" href="style.css">
-    
+
     <style>
 
-        :root {
-            --white: #FFFFFF;
-            --light-grey: #F4F5F6;
-            --fresh-blue: #3A98D8;
-            --amber: #FFEB3B;
-            --charcoal: #1E293B;
-            --charcoal-rgb: 30, 41, 59;
-        }
 
         body {
             font-family: 'Roboto';
             margin: 0;
-            background-color: var(--light-grey);
-            color: var(--charcoal);
+            background-color: #F4F5F6;
+            color: #1E293B;
         }
 
         h1, h2, h3 {
@@ -36,21 +28,21 @@
             z-index: 20;
         }
 
-        
+
         .utility-bar {
-            background-color: var(--white);
-            color: var(--charcoal);
+            background-color: #FFFFFF;
+            color: #1E293B;
             font-family: 'Roboto';
             padding: 16px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 14px;
-            box-shadow: 0 2px 4px rgba(var(--charcoal-rgb),0.08);
+            box-shadow: 0 2px 4px #1E293B14;
             position: relative;
             z-index: 10;
         }
-        
+
         .utility-bar .left-text { flex: 1; font-weight: bold; }
         .logo-center { flex: 1; text-align: center; }
         .logo-center img {
@@ -61,100 +53,100 @@
 
         .utility-bar .right-links { flex: 1; text-align: right; }
         .utility-bar .right-links a {
-            color: var(--charcoal);
+            color: #1E293B;
             margin-left: 15px;
             font-weight: bold;
         }
-        .utility-bar .right-links a:hover { color: var(--fresh-blue); text-decoration: underline; }
+        .utility-bar .right-links a:hover { color: #3A98D8; text-decoration: underline; }
         .utility-bar a:focus-visible,
         .main-nav a:focus-visible,
         .hero a:focus-visible,
         .tips-grid a:focus-visible,
         .schedule-banner:focus-visible,
         footer a:focus-visible {
-            outline: 3px solid var(--amber);
+            outline: 3px solid #FFEB3B;
             outline-offset: 3px;
         }
 
-        
+
         .main-nav {
-            background-color: var(--white); 
+            background-color: #FFFFFF;
             padding: 15px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 48px;
-            box-shadow: 0 4px 6px rgba(var(--charcoal-rgb),0.12);
+            box-shadow: 0 4px 6px #1E293B1F;
             position: relative;
             z-index: 9;
         }
 
         .home-link {
-            color: var(--fresh-blue);
+            color: #3A98D8;
             font-weight: bold;
             font-size: 15px;
             transition: color 0.2s ease;
         }
-        .home-link:hover { color: var(--light-grey); }
+        .home-link:hover { color: #F4F5F6; }
 
         .nav-links { display: flex; gap: 28px; align-items: center; }
-        .nav-links a { 
-            color: var(--fresh-blue);
-            font-weight: bold; 
-            font-size: 14px; 
+        .nav-links a {
+            color: #3A98D8;
+            font-weight: bold;
+            font-size: 14px;
         }
         .nav-links a:not(.btn-report) {
             transition: color 0.2s ease;
         }
         .nav-links a:not(.btn-report):hover {
-            color: var(--light-grey);
+            color: #F4F5F6;
         }
-        
-        
+
+
         .btn-report {
-            background-color: var(--fresh-blue);
+            background-color: #3A98D8;
             color: #FFEB3B !important;
             padding: 8px 20px;
             border-radius: 20px;
-            border: 2px solid var(--fresh-blue);
-            transition: all 0.3s ease; 
-        }
-        
-        .btn-report:hover { 
-            background-color: var(--light-grey);
-            border-color: var(--light-grey);
-            color: var(--fresh-blue) !important;
+            border: 2px solid #3A98D8;
+            transition: all 0.3s ease;
         }
 
-        
+        .btn-report:hover {
+            background-color: #F4F5F6;
+            border-color: #F4F5F6;
+            color: #3A98D8 !important;
+        }
+
+
         .hero {
             display: flex;
             align-items: center;
             justify-content: center;
             background-image:
-                linear-gradient(rgba(var(--charcoal-rgb), 0.08), rgba(var(--charcoal-rgb), 0.08)),
+                linear-gradient(#1E293B14, #1E293B14),
                 url('kawempe.jpeg');
             background-size: cover;
             background-position: center 85%;
             height: 500px;
             box-sizing: border-box;
             padding: 0;
-            border: 2px solid rgba(var(--charcoal-rgb), 0.32);
-            box-shadow: inset 0 0 55px rgba(var(--charcoal-rgb), 0.38);
+            border: 2px solid #1E293B52;
+            box-shadow: inset 0 0 55px #1E293B61;
         }
         .hero-title {
             margin: 0;
-            color: var(--light-grey);
+            color: #F4F5F6;
             font-size: clamp(32px, 6vw, 64px);
             text-align: center;
-            text-shadow: 0 3px 12px rgba(var(--charcoal-rgb), 0.9);
+            text-shadow: 0 3px 12px #1E293BE6;
         }
         .hero-subtitle {
             margin: 8px 0 0;
-            color: var(--light-grey);
+            color: #F4F5F6;
             font-size: clamp(16px, 2.5vw, 22px);
             text-align: center;
-            text-shadow: 0 2px 8px rgba(var(--charcoal-rgb), 0.9);
+            text-shadow: 0 2px 8px #1E293BE6;
         }
 
         .hero-panel {
@@ -170,8 +162,8 @@
             padding: 20px;
             box-sizing: border-box;
             border-radius: 8px;
-            background: var(--light-grey);
-            box-shadow: 0 4px 15px rgba(var(--charcoal-rgb),0.14);
+            background: #F4F5F6;
+            box-shadow: 0 4px 15px #1E293B24;
         }
 
         .hero-box {
@@ -185,15 +177,15 @@
             font-weight: 400;
             font-style: normal;
             border-radius: 8px;
-            background: var(--light-grey);
-            box-shadow: 0 2px 8px rgba(var(--charcoal-rgb), 0.08);
+            background: #F4F5F6;
+            box-shadow: 0 2px 8px #1E293B14;
         }
-        
+
         .hero-box h2 {
             font-family: "Montserrat";
             font-weight: 600;
             font-style: normal;
-            color: var(--charcoal);
+            color: #1E293B;
             margin-top: 0;
             font-size: 30px;
             padding-bottom: 10px;
@@ -204,12 +196,12 @@
             font-family: 'Roboto', Arial, sans-serif;
         }
 
-        .hero-box ol { 
-            padding-left: 20px; 
-            line-height: 1.6; 
+        .hero-box ol {
+            padding-left: 20px;
+            line-height: 1.6;
             font-size: 18px;
         }
-        .hero-box li { font-weight: 400; color: var(--charcoal); }
+        .hero-box li { font-weight: 400; color: #1E293B; }
 
         .box-left {
             align-self: stretch;
@@ -221,7 +213,7 @@
         }
         .box-left .how-it-works-text h2,
         .box-left .how-it-works-text li {
-            color: var(--fresh-blue);
+            color: #3A98D8;
         }
         .how-it-works-text {
             display: flex;
@@ -262,7 +254,7 @@
             justify-content: flex-start;
         }
         .box-center h2 {
-            color: var(--charcoal);
+            color: #1E293B;
             width: 100%;
             margin-bottom: 10px;
             padding: 0 0 10px;
@@ -285,10 +277,10 @@
             height: 70px;
             padding: 8px 12px;
             background-color: transparent;
-            color: var(--fresh-blue);
+            color: #3A98D8;
             font-size: 18px;
             text-align: left;
-            border-bottom: 1px solid rgba(var(--charcoal-rgb), 0.14);
+            border-bottom: 1px solid #1E293B24;
             box-sizing: border-box;
         }
         .box-center li:last-child {
@@ -300,64 +292,64 @@
             height: 34px;
             place-items: center;
             border-radius: 50%;
-            background-color: var(--light-grey);
-            color: var(--fresh-blue);
+            background-color: #F4F5F6;
+            color: #3A98D8;
             font-size: 16px;
             font-weight: 600;
             box-sizing: border-box;
         }
         .box-center li:first-child .leaderboard-rank {
-            border: 2px solid var(--amber);
+            border: 2px solid #FFEB3B;
         }
         .box-center li:nth-child(-n+3) {
             font-size: 21px;
             font-weight: 400;
         }
-        
+
         .counter-section {
             text-align: center;
             padding: 40px 20px;
-            background: var(--white);
+            background: #FFFFFF;
             margin: 30px auto;
             max-width: 600px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(var(--charcoal-rgb),0.06);
+            box-shadow: 0 4px 10px #1E293B0F;
         }
-        .counter-section h2 { font-size: 50px; color: var(--fresh-blue); margin: 0; }
-        .counter-section p { margin: 5px 0 0 0; font-weight: bold; color: var(--charcoal); font-size: 18px; }
+        .counter-section h2 { font-size: 50px; color: #3A98D8; margin: 0; }
+        .counter-section p { margin: 5px 0 0 0; font-weight: bold; color: #1E293B; font-size: 18px; }
 
-        
+
         .tips-section { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
         .tips-grid { display: flex; gap: 15px; justify-content: space-between; }
-        
+
         .tip-card {
             flex: 1;
-            height: 200px; 
+            height: 200px;
             border-radius: 8px;
             display: flex;
-            align-items: flex-end; 
+            align-items: flex-end;
             justify-content: center;
             padding: 15px;
             box-sizing: border-box;
             text-align: center;
-            background: linear-gradient(rgba(var(--charcoal-rgb), 0.4), rgba(var(--charcoal-rgb), 0.9)), url('kawempe.webp');
+            background: linear-gradient(#1E293B66, #1E293BE6), url('kawempe.jpeg');
             background-size: cover;
             background-position: center;
             transition: transform 0.2s;
         }
         .tip-card:hover { transform: translateY(-5px); }
         .tip-card h3 {
-            color: var(--white);
+            color: #FFFFFF;
             font-size: 16px;
             margin: 0;
-            text-shadow: 1px 1px 3px rgba(var(--charcoal-rgb),0.8);
+            text-shadow: 1px 1px 3px #1E293BCC;
         }
 
-        
+
         .schedule-banner {
             display: block;
-            background-color: var(--charcoal);
-            color: var(--white);
+            background-color: #1E293B;
+            color: #FFFFFF;
             text-align: center;
             padding: 20px;
             margin: 40px auto;
@@ -367,21 +359,21 @@
             font-size: 20px;
             transition: background-color 0.3s;
         }
-        .schedule-banner:hover { background-color: var(--fresh-blue); }
+        .schedule-banner:hover { background-color: #3A98D8; }
 
-        
+
         footer {
-            background-color: var(--charcoal);
-            color: var(--white);
+            background-color: #1E293B;
+            color: #FFFFFF;
             padding: 30px 20px;
             display: flex;
-            justify-content: space-between; 
+            justify-content: space-between;
             align-items: center;
             margin-top: 50px;
-            border-top: 4px solid var(--fresh-blue);
+            border-top: 4px solid #3A98D8;
         }
-        .footer-links a { color: var(--white); margin-right: 20px; font-size: 14px; text-decoration: none; }
-        .footer-links a:hover { color: var(--amber); text-decoration: underline; }
+        .footer-links a { color: #FFFFFF; margin-right: 20px; font-size: 14px; text-decoration: none; }
+        .footer-links a:hover { color: #FFEB3B; text-decoration: underline; }
         .footer-logo img {
             display: block;
             width: 72px;
@@ -507,7 +499,7 @@
 
         <nav class="main-nav">
             <a href="index.html" class="home-link" aria-current="page">Home</a>
-            
+
             <div class="nav-links">
                 <a href="waste_tips.html">Waste Tips</a>
                 <a href="track.html">Track Reports</a>
@@ -516,7 +508,7 @@
         </nav>
     </header>
 
-    
+
     <section class="hero" aria-label="Welcome">
         <div>
             <h1 class="hero-title">Welcome, Our Community Hero!</h1>
@@ -551,36 +543,36 @@
             </div>
     </section>
 
-    
+
     <section class="counter-section">
         <h2>1,245</h2>
         <p>Reports Logged to Date</p>
     </section>
 
-    
+
     <section class="tips-section">
         <div class="tips-grid">
-            <a href="tip-1.html" class="tip-card" style="background-image: linear-gradient(rgba(var(--charcoal-rgb), 0.4), rgba(var(--charcoal-rgb), 0.9)), url('illegal-landfills.jpeg');">
+            <a href="tip-1.html" class="tip-card" style="background-image: linear-gradient(#1E293B66, #1E293BE6), url('illegal-landfills.jpeg');">
                 <h3>Illegal-landfills</h3>
             </a>
-            <a href="tip-2.html" class="tip-card" style="background-image: linear-gradient(rgba(var(--charcoal-rgb), 0.4), rgba(var(--charcoal-rgb), 0.9)), url('clogged-drainage.jpeg');">
+            <a href="tip-2.html" class="tip-card" style="background-image: linear-gradient(#1E293B66, #1E293BE6), url('clogged-drainage.jpeg');">
                 <h3>Clogged Drainage</h3>
             </a>
-            <a href="tip-3.html" class="tip-card" style="background-image: linear-gradient(rgba(var(--charcoal-rgb), 0.4), rgba(var(--charcoal-rgb), 0.9)), url('recycle.jpeg');">
+            <a href="tip-3.html" class="tip-card" style="background-image: linear-gradient(#1E293B66, #1E293BE6), url('recycle.jpeg');">
                 <h3>Recycle</h3>
             </a>
-            <a href="tip-4.html" class="tip-card" style="background-image: linear-gradient(rgba(var(--charcoal-rgb), 0.4), rgba(var(--charcoal-rgb), 0.9)), url('littering.jpeg');">
+            <a href="tip-4.html" class="tip-card" style="background-image: linear-gradient(#1E293B66, #1E293BE6), url('littering.jpeg');">
                 <h3>Littering</h3>
             </a>
         </div>
     </section>
 
-    
+
     <a href="schedules.html" class="schedule-banner">
         View Collection Schedule &rarr;
     </a>
 
-    
+
     <footer>
         <div class="footer-links">
             <a href="about.html">About</a>

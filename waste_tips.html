@@ -8,27 +8,19 @@
     <style>
         @font-face {
             font-family: 'Roboto';
-            src: url('fonts/Roboto.ttf') format('truetype');
+            src: url('Roboto.ttf') format('truetype');
             font-style: normal;
             font-weight: 100 900;
             font-display: swap;
         }
 
-        :root {
-            --white: #FFFFFF;
-            --light-grey: #F4F5F6;
-            --fresh-blue: #3A98D8;
-            --amber: #FFEB3B;
-            --charcoal: #1E293B;
-            --charcoal-rgb: 30, 41, 59;
-        }
 
         * { box-sizing: border-box; }
 
         body {
             margin: 0;
-            background: var(--light-grey);
-            color: var(--charcoal);
+            background: #F4F5F6;
+            color: #1E293B;
             font-family: 'Roboto', Arial, sans-serif;
         }
 
@@ -47,8 +39,8 @@
             justify-content: space-between;
             gap: 16px;
             padding: 12px 30px;
-            background: var(--white);
-            box-shadow: 0 2px 4px rgba(var(--charcoal-rgb), 0.08);
+            background: #FFFFFF;
+            box-shadow: 0 2px 4px #1E293B14;
             font-size: 14px;
         }
 
@@ -59,10 +51,10 @@
         .right-links { text-align: right; white-space: nowrap; }
         .right-links a {
             margin-left: 14px;
-            color: var(--charcoal);
+            color: #1E293B;
             font-weight: bold;
         }
-        .right-links a:hover { color: var(--fresh-blue); }
+        .right-links a:hover { color: #3A98D8; }
 
         .main-nav {
             display: flex;
@@ -70,12 +62,12 @@
             align-items: center;
             gap: 48px;
             padding: 15px 20px;
-            background: var(--white);
-            box-shadow: 0 4px 6px rgba(var(--charcoal-rgb), 0.12);
+            background: #FFFFFF;
+            box-shadow: 0 4px 6px #1E293B1F;
         }
 
         .home-link, .nav-links a {
-            color: var(--fresh-blue);
+            color:#3A98D8;
             font-size: 14px;
             font-weight: bold;
         }
@@ -83,16 +75,16 @@
         .nav-links { display: flex; align-items: center; gap: 28px; }
         .btn-report {
             padding: 8px 20px;
-            border: 2px solid var(--fresh-blue);
+            border: 2px solid #3A98D8;
             border-radius: 20px;
-            background: var(--fresh-blue);
+            background: #3A98D8;
             color: #FFEB3B !important;
         }
 
         .page-intro {
             padding: 44px 20px;
-            background: var(--charcoal);
-            color: var(--white);
+            background: #1E293B;
+            color: #FFFFFF;
             text-align: center;
         }
         .page-intro h1 { margin: 0 0 12px; font-size: clamp(28px, 4vw, 40px); }
@@ -110,12 +102,12 @@
         .accordion-item {
             overflow: hidden;
             border-radius: 8px;
-            background: var(--white);
-            box-shadow: 0 3px 12px rgba(var(--charcoal-rgb), 0.1);
+            background:#FFFFFF;
+            box-shadow: 0 3px 12px #1E293B1A;
         }
         .accordion-item summary {
             padding: 18px 20px;
-            color: var(--fresh-blue);
+            color: #3A98D8;
             cursor: pointer;
             font-size: 18px;
             font-weight: bold;
@@ -126,17 +118,17 @@
             content: "+";
             float: right;
             margin-left: 12px;
-            color: var(--charcoal);
+            color: #1E293B;
         }
         .accordion-item[open] summary::after { content: "\2212"; }
         .accordion-content {
             padding: 0 20px 20px;
-            border-top: 1px solid var(--light-grey);
+            border-top: 1px solid #F4F5F6;
             line-height: 1.65;
         }
         .accordion-content h3 {
             margin: 18px 0 8px;
-            color: var(--charcoal);
+            color:#1E293B;
             font-size: 16px;
         }
         .accordion-content p { margin: 14px 0 0; }
@@ -147,35 +139,35 @@
             margin-top: 36px;
             padding: 24px;
             border-radius: 8px;
-            background: var(--white);
-            box-shadow: 0 3px 12px rgba(var(--charcoal-rgb), 0.08);
+            background: #FFFFFF;
+            box-shadow: 0 3px 12px #1E293B14;
         }
         .schedule-link {
             display: inline-block;
             margin-top: 16px;
             padding: 11px 20px;
             border-radius: 6px;
-            background: var(--fresh-blue);
-            color: var(--white);
+            background: #3A98D8;
+            color: #FFFFFF;
             font-weight: bold;
         }
         footer {
-            background-color: var(--charcoal);
-            color: var(--white);
+            background-color: #1E293B;
+            color: #FFFFFF;
             padding: 30px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-top: 50px;
-            border-top: 4px solid var(--fresh-blue);
+            border-top: 4px solid #3A98D8;
         }
         .footer-links a {
-            color: var(--white);
+            color: #FFFFFF;
             margin-right: 20px;
             font-size: 14px;
             text-decoration: none;
         }
-        .footer-links a:hover { color: var(--amber); text-decoration: underline; }
+        .footer-links a:hover { color: #FFEB3B; text-decoration: underline; }
         .footer-logo img {
             display: block;
             width: 72px;
@@ -185,7 +177,7 @@
         }
         .utility-bar a:focus-visible, .main-nav a:focus-visible,
         .accordion-item summary:focus-visible, .schedule-link:focus-visible, footer a:focus-visible {
-            outline: 3px solid var(--amber);
+            outline: 3px solid #FFEB3B;
             outline-offset: 3px;
         }
 
@@ -335,8 +327,19 @@
                     </ul>
                 </div>
             </details>
+            <details class="accordion-item">
+                <summary>6. Reporting Illegal Dumping</summary>
+                <div class="accordion-content">
+                    <p>If you see illegal dumping or overflowing skips, report it to the local waste authority or use the reporting feature on this website.</p>
+                    <h3>How to report</h3>
+                    <ul>
+                        <li>Provide the location and description of the issue.</li>
+                        <li>Include photos if possible to help authorities assess the situation.</li>
+                        <li>Use the online reporting form or contact the local waste management office directly.</li>
+                    </ul>
+                </div>
+            </details>
         </div>
-        
         <section class="schedule-section">
             <h2>Collection Schedules &amp; Skip Points</h2>
             <p>Check the collection schedules for your parish and zone below. Ensure you place waste in the designated skip points on collection days.</p>

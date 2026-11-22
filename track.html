@@ -7,22 +7,13 @@
     <link rel="stylesheet" href="style.css">
     <style>
 
-        
-        :root {
-            --white: #FFFFFF;
-            --light-grey: #F4F5F6;
-            --fresh-blue: #3A98D8;
-            --amber: #FFEB3B;
-            --charcoal: #1E293B;
-            --charcoal-rgb: 30, 41, 59;
-            --fresh-green: #22C55E;
-        }
+
 
         body {
             font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
-            background-color: var(--light-grey);
-            color: var(--charcoal);
+            background-color: #F4F5F6;
+            color: #1E293B;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -35,33 +26,33 @@
 
         a { text-decoration: none; }
 
-    
+
         .site-header { position: sticky; top: 0; z-index: 20; }
         .utility-bar {
-            background-color: var(--white); padding: 16px 30px;
+            background-color: #FFFFFF; padding: 16px 30px;
             display: flex; justify-content: space-between; align-items: center;
-            font-size: 14px; box-shadow: 0 2px 4px rgba(var(--charcoal-rgb),0.08);
+            font-size: 14px; box-shadow: 0 2px 4px #1E293B14;
         }
         .utility-bar .left-text { flex: 1; font-weight: bold; }
         .logo-center { flex: 1; text-align: center; }
         .logo-center img { width: 58px; height: 58px; object-fit: contain; }
         .utility-bar .right-links { flex: 1; text-align: right; }
-        .utility-bar .right-links a { color: var(--charcoal); margin-left: 15px; font-weight: bold; }
+        .utility-bar .right-links a { color: #1E293B; margin-left: 15px; font-weight: bold; }
 
         .main-nav {
-            background-color: var(--white); padding: 15px 20px;
+            background-color: #FFFFFF; padding: 15px 20px;
             display: flex; justify-content: center; align-items: center; gap: 48px;
-            box-shadow: 0 4px 6px rgba(var(--charcoal-rgb),0.12);
+            box-shadow: 0 4px 6px #1E293B1F;
         }
-        .home-link { color: var(--fresh-blue); font-weight: bold; font-size: 15px; }
+        .home-link { color: #3A98D8; font-weight: bold; font-size: 15px; }
         .nav-links { display: flex; gap: 28px; align-items: center; }
-        .nav-links a { color: var(--fresh-blue); font-weight: bold; font-size: 14px; }
+        .nav-links a { color: #3A98D8; font-weight: bold; font-size: 14px; }
         .btn-report {
-            background-color: var(--fresh-blue); color: #FFEB3B !important;
-            padding: 8px 20px; border-radius: 20px; border: 2px solid var(--fresh-blue);
+            background-color: #3A98D8; color: #FFEB3B !important;
+            padding: 8px 20px; border-radius: 20px; border: 2px solid #3A98D8;
         }
 
-        
+
         .track-wrapper {
             flex: 1;
             max-width: 1100px;
@@ -72,14 +63,14 @@
         }
 
         .main-card {
-            background: var(--white);
+            background: #FFFFFF;
             padding: 55px 40px;
             min-height: 600px;
             border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(var(--charcoal-rgb), 0.16);
+            box-shadow: 0 8px 24px #1E293B29;
         }
 
-        
+
         .track-top-section {
             display: flex;
             justify-content: flex-start;
@@ -96,35 +87,35 @@
 
         .track-title h2 {
             font-size: 56px;
-            color: var(--fresh-blue);
+            color: #3A98D8;
             margin: 0;
             line-height: 1.2;
             font-weight: bold;
         }
 
-        
+
         .search-container {
-            background: var(--white);
+            background: #FFFFFF;
             padding: 20px;
             border-radius: 0;
             width: 100%;
             max-width: 450px;
             margin-right: -22px;
             z-index: 1;
-            box-shadow: 0 6px 18px rgba(var(--charcoal-rgb), 0.12);
+            box-shadow: 0 6px 18px #1E293B1F;
         }
 
         .search-container h3 {
             margin: 0 0 10px;
             font-size: 18px;
-            color: var(--fresh-blue);
+            color: #3A98D8;
         }
 
         .search-container label {
             display: block;
             font-size: 14px;
             margin-bottom: 5px;
-            color: var(--charcoal);
+            color: #1E293B;
             font-weight: bold;
         }
 
@@ -136,22 +127,22 @@
         .search-form input {
             flex: 1;
             padding: 10px;
-            border: 2px solid var(--charcoal);
+            border: 2px solid #1E293B;
             border-radius: 4px;
             font-size: 16px;
         }
 
         .search-form button {
             padding: 10px 20px;
-            background-color: var(--charcoal);
-            color: var(--white);
+            background-color: #1E293B;
+            color: #FFFFFF;
             border: none;
             border-radius: 4px;
             font-weight: bold;
             cursor: pointer;
         }
 
-        
+
         .graph-title {
             font-size: 20px;
             font-weight: bold;
@@ -165,19 +156,19 @@
             height: 300px;
         }
 
-        
+
         .svg-wrapper {
             flex: 1;
-            border-bottom: 2px solid var(--charcoal);
-            border-left: 2px solid var(--charcoal);
+            border-bottom: 2px solid #1E293B;
+            border-left: 2px solid #1E293B;
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding-bottom: 30px; 
+            padding-bottom: 30px;
         }
 
-        
+
         svg {
             width: 100%;
             height: 100%;
@@ -189,13 +180,13 @@
             stroke-width: 2;
             stroke-linejoin: round;
         }
-        
+
         .dot {
-            stroke: var(--white);
+            stroke: #FFFFFF;
             stroke-width: 2;
         }
 
-        
+
         .days-axis {
             display: flex;
             justify-content: space-between;
@@ -204,11 +195,11 @@
             width: 100%;
             font-size: 12px;
             font-weight: bold;
-            color: var(--charcoal);
+            color: #1E293B;
             text-transform: uppercase;
         }
 
-        
+
         .status-labels {
             flex: 0 0 220px;
             display: flex;
@@ -234,17 +225,17 @@
             flex-shrink: 0;
         }
 
-        
+
         footer {
-            background-color: var(--charcoal); color: var(--white);
+            background-color: #1E293B; color: #FFFFFF;
             padding: 30px 20px; display: flex; justify-content: space-between; align-items: center;
-            border-top: 4px solid var(--fresh-blue);
+            border-top: 4px solid #3A98D8;
             margin-top: auto;
         }
-        .footer-links a { color: var(--white); margin-right: 20px; font-size: 14px; }
+        .footer-links a { color: #FFFFFF; margin-right: 20px; font-size: 14px; }
         .footer-logo img { width: 60px; height: 60px; object-fit: contain; }
 
-        
+
         @media (max-width: 800px) {
             .track-top-section { flex-direction: column; }
             .search-container { max-width: 100%; }
@@ -280,13 +271,13 @@
     <!-- MAIN CONTENT (One Single Container) -->
     <div class="track-wrapper">
         <div class="main-card">
-            
+
             <!-- Top Section: Title & Search -->
             <div class="track-top-section">
                 <div class="track-title">
                     <h2>Reported<br>Queries</h2>
                 </div>
-                
+
                 <div class="search-container">
                     <h3>Track your report</h3>
                     <label for="ref-no">Reference no.</label>
@@ -300,37 +291,37 @@
             <!-- Bottom Section: The Graph -->
             <div class="graph-area">
                 <div class="graph-title">Last 7 days</div>
-                
+
                 <div class="chart-container">
                     <!-- The Graph Area (Left) -->
                     <div class="svg-wrapper">
                         <svg viewBox="0 0 700 200" preserveAspectRatio="none">
                             <!-- Line 1 (Top) -->
-                            <path class="line-path" stroke="var(--fresh-blue)" d="M 0,150 L 100,150 L 200,100 L 300,50 L 400,90 L 500,100 L 600,140 L 700,160" />
+                            <path class="line-path" stroke="#3A98D8" d="M 0,150 L 100,150 L 200,100 L 300,50 L 400,90 L 500,100 L 600,140 L 700,160" />
                             <!-- Line 2 (Middle) -->
-                            <path class="line-path" stroke="var(--amber)" d="M 0,180 L 100,180 L 200,130 L 300,90 L 400,140 L 500,150 L 600,140 L 700,180" />
+                            <path class="line-path" stroke="#FFEB3B" d="M 0,180 L 100,180 L 200,130 L 300,90 L 400,140 L 500,150 L 600,140 L 700,180" />
                             <!-- Line 3 (Bottom) -->
-                            <path class="line-path" stroke="var(--charcoal)" d="M 0,190 L 100,160 L 200,160 L 300,150 L 400,130 L 500,160 L 600,190 L 700,190" />
+                            <path class="line-path" stroke="#1E293B" d="M 0,190 L 100,160 L 200,160 L 300,150 L 400,130 L 500,160 L 600,190 L 700,190" />
                             <!-- Pending problems -->
-                            <path class="line-path" stroke="var(--fresh-green)" d="M 0,170 L 100,165 L 200,160 L 300,155 L 400,150 L 500,145 L 600,155 L 700,165" />
-                            
+                            <path class="line-path" stroke="#22C55E" d="M 0,170 L 100,165 L 200,160 L 300,155 L 400,150 L 500,145 L 600,155 L 700,165" />
+
                             <!-- Dots on Line 1 -->
-                            <circle class="dot" cx="100" cy="150" r="4" fill="var(--fresh-blue)"/>
-                            <circle class="dot" cx="200" cy="100" r="4" fill="var(--fresh-blue)"/>
-                            <circle class="dot" cx="300" cy="50" r="4" fill="var(--fresh-blue)"/>
-                            <circle class="dot" cx="400" cy="90" r="4" fill="var(--fresh-blue)"/>
-                            <circle class="dot" cx="500" cy="100" r="4" fill="var(--fresh-blue)"/>
-                            <circle class="dot" cx="600" cy="140" r="4" fill="var(--fresh-blue)"/>
+                            <circle class="dot" cx="100" cy="150" r="4" fill="#3A98D8"/>
+                            <circle class="dot" cx="200" cy="100" r="4" fill="#3A98D8"/>
+                            <circle class="dot" cx="300" cy="50" r="4" fill="#3A98D8"/>
+                            <circle class="dot" cx="400" cy="90" r="4" fill="#3A98D8"/>
+                            <circle class="dot" cx="500" cy="100" r="4" fill="#3A98D8"/>
+                            <circle class="dot" cx="600" cy="140" r="4" fill="#3A98D8"/>
                             <!-- Dots on pending line -->
-                            <circle class="dot" cx="100" cy="165" r="4" fill="var(--fresh-green)"/>
-                            <circle class="dot" cx="200" cy="160" r="4" fill="var(--fresh-green)"/>
-                            <circle class="dot" cx="300" cy="155" r="4" fill="var(--fresh-green)"/>
-                            <circle class="dot" cx="400" cy="150" r="4" fill="var(--fresh-green)"/>
-                            <circle class="dot" cx="500" cy="145" r="4" fill="var(--fresh-green)"/>
-                            <circle class="dot" cx="600" cy="155" r="4" fill="var(--fresh-green)"/>
-                            <circle class="dot" cx="700" cy="165" r="4" fill="var(--fresh-green)"/>
+                            <circle class="dot" cx="100" cy="165" r="4" fill="#22C55E"/>
+                            <circle class="dot" cx="200" cy="160" r="4" fill="#22C55E"/>
+                            <circle class="dot" cx="300" cy="155" r="4" fill="#22C55E"/>
+                            <circle class="dot" cx="400" cy="150" r="4" fill="#22C55E"/>
+                            <circle class="dot" cx="500" cy="145" r="4" fill="#22C55E"/>
+                            <circle class="dot" cx="600" cy="155" r="4" fill="#22C55E"/>
+                            <circle class="dot" cx="700" cy="165" r="4" fill="#22C55E"/>
                         </svg>
-                        
+
                         <div class="days-axis">
                             <span>mon</span>
                             <span>tue</span>
@@ -345,19 +336,19 @@
                     <!-- The Status Labels (Right) -->
                     <div class="status-labels">
                         <div class="status-item">
-                            <div class="status-dot" style="background: var(--fresh-blue);"></div>
+                            <div class="status-dot" style="background: #3A98D8;"></div>
                             <span>Problems reported / assigned</span>
                         </div>
                         <div class="status-item">
-                            <div class="status-dot" style="background: var(--amber);"></div>
+                            <div class="status-dot" style="background: #FFEB3B;"></div>
                             <span>Under review / investigating problem</span>
                         </div>
                         <div class="status-item">
-                            <div class="status-dot" style="background: var(--charcoal);"></div>
+                            <div class="status-dot" style="background: #1E293B;"></div>
                             <span>Resolved problem</span>
                         </div>
                         <div class="status-item">
-                            <div class="status-dot" style="background: var(--fresh-green);"></div>
+                            <div class="status-dot" style="background: #22C55E;"></div>
                             <span>Pending problem</span>
                         </div>
                     </div>

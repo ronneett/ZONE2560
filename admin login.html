@@ -6,94 +6,86 @@
     <title>Admin Login - Zone2560</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        
-        :root {
-            --white: #FFFFFF;
-            --light-grey: #F4F5F6;
-            --fresh-blue: #3A98D8;
-            --amber: #FFEB3B;
-            --charcoal: #1E293B;
-            --charcoal-rgb: 30, 41, 59;
-        }
+
 
         body {
             font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
-            background-color: var(--light-grey);
-            color: var(--charcoal);
+            background-color: #F4F5F6;
+            color: #1E293B;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; 
+            min-height: 100vh;
         }
 
         h1, h2, h3 { font-family: 'Roboto', Arial, sans-serif; }
         a { text-decoration: none; }
 
-        
+
         .utility-bar {
-            background-color: var(--white);
-            color: var(--charcoal);
+            background-color: #FFFFFF;
+            color: #1E293B;
             font-family: 'Roboto', Arial, sans-serif;
             padding: 16px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 14px;
-            box-shadow: 0 2px 4px rgba(var(--charcoal-rgb),0.08);
+            box-shadow: 0 2px 4px #1E293B14;
             position: relative;
             z-index: 10;
         }
-        
+
         .utility-bar .left-text { flex: 1; font-weight: bold; }
         .logo-center { flex: 1; text-align: center; }
         .logo-center img { width: 58px; height: 58px; object-fit: contain; }
 
         .utility-bar .right-links { flex: 1; text-align: right; }
         .utility-bar .right-links a {
-            color: var(--charcoal);
+            color: #1E293B;
             margin-left: 15px;
             font-weight: bold;
         }
-        .utility-bar .right-links a:hover { color: var(--fresh-blue); text-decoration: underline; }
+        .utility-bar .right-links a:hover { color: #3A98D8; text-decoration: underline; }
 
-        
+
         .main-nav {
-            background-color: var(--white); 
+            background-color: #FFFFFF;
             font-family: 'Roboto', Arial, sans-serif;
             padding: 15px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 48px;
-            box-shadow: 0 4px 6px rgba(var(--charcoal-rgb),0.12);
+            box-shadow: 0 4px 6px #1E293B1F;
             position: relative;
             z-index: 9;
         }
 
         .home-link {
-            color: var(--fresh-blue);
+            color: #3A98D8;
             font-weight: bold;
             font-size: 15px;
         }
-        .home-link:hover { color: var(--light-grey); }
+        .home-link:hover { color: #F4F5F6; }
 
         .nav-links { display: flex; gap: 28px; align-items: center; }
-        .nav-links a { color: var(--fresh-blue); font-weight: bold; font-size: 14px; }
-        .nav-links a:hover { color: var(--light-grey); }
-        
+        .nav-links a { color: #3A98D8; font-weight: bold; font-size: 14px; }
+        .nav-links a:hover { color: #F4F5F6; }
+
         .btn-report {
-            background-color: var(--fresh-blue);
+            background-color: #3A98D8;
             color: #FFEB3B !important;
             padding: 8px 20px;
             border-radius: 20px;
-            border: 2px solid var(--fresh-blue);
+            border: 2px solid #3A98D8;
             transition: all 0.3s ease;
         }
-        .btn-report:hover { background-color: var(--light-grey); border-color: var(--light-grey); color: var(--fresh-blue) !important; }
+        .btn-report:hover { background-color: #F4F5F6; border-color: #F4F5F6; color: #3A98D8 !important; }
 
-        
+
         .login-wrapper {
-            flex: 1; 
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -101,17 +93,17 @@
         }
 
         .login-container {
-            background: var(--white);
+            background: #FFFFFF;
             width: 100%;
             max-width: 450px;
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(var(--charcoal-rgb), 0.08);
+            box-shadow: 0 10px 25px #1E293B14;
             box-sizing: border-box;
         }
 
         .login-container h2 {
-            color: var(--charcoal);
+            color: #1E293B;
             text-align: left;
             margin-top: 0;
             margin-bottom: 6px;
@@ -120,27 +112,27 @@
 
         .login-subtitle {
             margin: 0 0 25px;
-            color: var(--charcoal);
+            color: #1E293B;
             font-size: 14px;
         }
         .login-subtitle strong {
             font-size: 18px;
         }
         .create-account-text {
-            color: var(--fresh-blue);
+            color: #3A98D8;
         }
 
-        
+
         .form-group { margin-bottom: 20px; }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 700;
-            color: var(--charcoal);
+            color: #1E293B;
             font-size: 14px;
         }
-        
+
         .form-group input {
             width: 100%;
             padding: 12px 15px;
@@ -154,17 +146,17 @@
 
         .form-group input:focus {
             outline: none;
-            border-color: var(--fresh-blue);
+            border-color: #3A98D8;
             box-shadow: 0 0 5px rgba(58, 152, 216, 0.2);
         }
 
-        
+
         .btn-submit {
             display: block;
             width: 100%;
             padding: 12px;
-            background-color: var(--fresh-blue);
-            color: var(--light-grey);
+            background-color: #3A98D8;
+            color: #F4F5F6;
             border: none;
             border-radius: 8px;
             font-weight: bold;
@@ -175,18 +167,18 @@
             text-align: center;
             text-decoration: none;
         }
-        
-        .btn-submit:hover { background-color: var(--charcoal); }
+
+        .btn-submit:hover { background-color: #1E293B; }
 
         #login-status {
             min-height: 20px;
             margin: 12px 0 0;
-            color: var(--charcoal);
+            color: #1E293B;
             font-size: 13px;
             text-align: center;
         }
 
-        
+
         .legal-text {
             text-align: center;
             margin-top: 30px;
@@ -195,27 +187,27 @@
             line-height: 1.6;
         }
         .legal-text a {
-            color: var(--fresh-blue);
+            color: #3A98D8;
             font-weight: bold;
         }
         .legal-text a:hover { text-decoration: underline; }
 
-        
+
         footer {
-            background-color: var(--charcoal);
-            color: var(--white);
+            background-color: #1E293B;
+            color: #FFFFFF;
             font-family: 'Roboto', Arial, sans-serif;
             padding: 20px;
             display: flex;
-            justify-content: space-between; 
+            justify-content: space-between;
             align-items: center;
-            border-top: 4px solid var(--fresh-blue);
+            border-top: 4px solid #3A98D8;
         }
-        .footer-links a { color: var(--white); margin-right: 20px; font-size: 14px; text-decoration: none; }
-        .footer-links a:hover { color: var(--amber); text-decoration: underline; }
+        .footer-links a { color: #FFFFFF; margin-right: 20px; font-size: 14px; text-decoration: none; }
+        .footer-links a:hover { color: #FFEB3B; text-decoration: underline; }
         .footer-logo img { display: block; width: 60px; height: 60px; object-fit: contain; }
 
-        
+
         @media (max-width: 700px) {
             .utility-bar { flex-wrap: wrap; gap: 10px; padding: 12px 16px; }
             .left-text, .logo-center, .utility-bar .right-links { flex: 1 1 100%; text-align: center; }
@@ -230,7 +222,7 @@
 </head>
 <body>
 
-    
+
     <div class="utility-bar">
         <div class="left-text">The official website of Kawempe Division</div>
         <div class="logo-center">
@@ -243,7 +235,7 @@
         </div>
     </div>
 
-    
+
     <nav class="main-nav">
         <a href="index.html" class="home-link">Home</a>
         <div class="nav-links">
@@ -266,7 +258,7 @@
                 <label for="email">Your email</label>
                 <input type="email" id="email" name="email" autocomplete="username">
             </div>
-            
+
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" autocomplete="current-password">
@@ -275,7 +267,7 @@
             <a class="btn-submit" href="admin%20dashboard.html">Sign In</a>
             </div>
 
-            
+
             <p class="legal-text">
                 By signing in you agree to our<br>
                 <a href="privacy.html">Privacy Policy</a>.
@@ -283,7 +275,7 @@
         </main>
     </div>
 
-    
+
     <footer>
         <div class="footer-links">
             <a href="about.html">About & Contact</a>

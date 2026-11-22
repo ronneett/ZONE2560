@@ -7,22 +7,14 @@
     <link rel="stylesheet" href="style.css">
     <style>
 
-        :root {
-            --white: #FFFFFF;
-            --light-grey: #F4F5F6;
-            --fresh-blue: #3A98D8;
-            --charcoal: #1E293B;
-            --muted: #64748B;
-            --border: #E2E8F0;
-        }
 
         * { box-sizing: border-box; }
 
         body {
             margin: 0;
             min-height: 100vh;
-            background: var(--light-grey);
-            color: var(--charcoal);
+            background: #F4F5F6;
+            color: #1E293B;
             font-family: 'Roboto', Arial, sans-serif;
         }
 
@@ -34,8 +26,8 @@
             flex: 0 0 250px;
             flex-direction: column;
             padding: 26px 18px;
-            background: var(--charcoal);
-            color: var(--white);
+            background: #1E293B;
+            color: #FFFFFF;
         }
 
         .brand {
@@ -73,23 +65,23 @@
         }
 
         .sidebar nav a:hover, .sidebar nav a[aria-current="page"] { background: #334155; }
-        .sidebar nav a[aria-current="page"] { box-shadow: inset 3px 0 var(--fresh-blue); }
+        .sidebar nav a[aria-current="page"] { box-shadow: inset 3px 0 #3A98D8; }
         .sidebar-bottom { margin-top: auto; }
-        .sidebar-bottom a { color: var(--fresh-blue); }
-        .sidebar-bottom a:hover { background: var(--fresh-blue); color: var(--white); }
+        .sidebar-bottom a { color: #3A98D8; }
+        .sidebar-bottom a:hover { background: #3A98D8; color: #FFFFFF; }
 
         main { flex: 1; min-width: 0; padding: 34px clamp(20px, 4vw, 56px); }
         .page-header { margin-bottom: 22px; }
         h1, h2 { font-family: 'Poppins', Arial, sans-serif; }
         h1 { margin: 0; font-size: clamp(24px, 3vw, 32px); }
-        .page-header p { margin: 6px 0 0; color: var(--muted); }
+        .page-header p { margin: 6px 0 0; color: #64748B; }
 
         .panel {
             margin-bottom: 20px;
             padding: 22px;
-            border: 1px solid var(--border);
+            border: 1px solid #E2E8F0;
             border-radius: 10px;
-            background: var(--white);
+            background: #FFFFFF;
             box-shadow: 0 3px 10px rgba(30, 41, 59, 0.04);
         }
 
@@ -109,20 +101,20 @@
             padding: 9px 10px;
             border: 1px solid #CBD5E1;
             border-radius: 6px;
-            background: var(--white);
-            color: var(--charcoal);
+            background: #FFFFFF;
+            color: #1E293B;
             font: inherit;
         }
 
-        input:focus, select:focus { outline: 2px solid rgba(58, 152, 216, .35); border-color: var(--fresh-blue); }
+        input:focus, select:focus { outline: 2px solid rgba(58, 152, 216, .35); border-color: #3A98D8; }
 
         button {
             min-height: 40px;
             padding: 9px 14px;
             border: 0;
             border-radius: 6px;
-            background: var(--fresh-blue);
-            color: var(--white);
+            background: #3A98D8;
+            color: #FFFFFF;
             font: inherit;
             font-size: 13px;
             font-weight: 700;
@@ -130,13 +122,13 @@
         }
 
         button:hover { background: #277DB8; }
-        button.secondary { border: 1px solid var(--border); background: var(--white); color: var(--charcoal); }
-        button.secondary:hover { background: var(--light-grey); }
+        button.secondary { border: 1px solid #E2E8F0; background: #FFFFFF; color: #1E293B; }
+        button.secondary:hover { background: #F4F5F6; }
 
         .table-wrap { overflow-x: auto; }
         table { width: 100%; min-width: 900px; border-collapse: collapse; text-align: left; }
-        th, td { padding: 11px 9px; border-bottom: 1px solid var(--border); font-size: 13px; }
-        th { color: var(--muted); font-size: 11px; letter-spacing: .4px; text-transform: uppercase; }
+        th, td { padding: 11px 9px; border-bottom: 1px solid #E2E8F0; font-size: 13px; }
+        th { color: #64748B; font-size: 11px; letter-spacing: .4px; text-transform: uppercase; }
         tbody tr:last-child td { border-bottom: 0; }
         td select { min-width: 120px; }
         .report-id { font-weight: 700; white-space: nowrap; }
@@ -156,7 +148,7 @@
         .status.resolved { background: #DCFCE7; color: #166534; }
         .status-control { min-width: 120px; }
         .row-update { min-height: 34px; padding: 7px 10px; }
-        .empty-row { display: none; padding: 24px; color: var(--muted); text-align: center; }
+        .empty-row { display: none; padding: 24px; color: #64748B; text-align: center; }
         #preview-status { min-height: 20px; margin: 14px 0 0; color: #166534; font-size: 13px; }
         a:focus-visible, button:focus-visible { outline: 3px solid #FDE047; outline-offset: 3px; }
 

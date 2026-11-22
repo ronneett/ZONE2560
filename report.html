@@ -7,21 +7,13 @@
     <link rel="stylesheet" href="style.css">
     <style>
 
-        
-        :root {
-            --white: #FFFFFF;
-            --light-grey: #F4F5F6;
-            --fresh-blue: #3A98D8;
-            --amber: #FFEB3B;
-            --charcoal: #1E293B;
-            --charcoal-rgb: 30, 41, 59;
-        }
+
 
         body {
             font-family: 'Roboto';
             margin: 0;
-            background-color: var(--light-grey);
-            color: var(--charcoal);
+            background-color: #F4F5F6;
+            color: #1E293B;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -34,35 +26,35 @@
 
         a { text-decoration: none; }
 
-        
+
         .site-header { position: sticky; top: 0; z-index: 20; }
-        
+
         .utility-bar {
-            background-color: var(--white); padding: 16px 30px;
+            background-color: #FFFFFF; padding: 16px 30px;
             display: flex; justify-content: space-between; align-items: center;
-            font-size: 14px; box-shadow: 0 2px 4px rgba(var(--charcoal-rgb),0.08);
+            font-size: 14px; box-shadow: 0 2px 4px #1E293B14;
         }
         .utility-bar .left-text { flex: 1; font-weight: bold; }
         .logo-center { flex: 1; text-align: center; }
         .logo-center img { width: 58px; height: 58px; object-fit: contain; }
         .utility-bar .right-links { flex: 1; text-align: right; }
-        .utility-bar .right-links a { color: var(--charcoal); margin-left: 15px; font-weight: bold; }
-        .utility-bar .right-links a:hover { color: var(--fresh-blue); }
+        .utility-bar .right-links a { color: #1E293B; margin-left: 15px; font-weight: bold; }
+        .utility-bar .right-links a:hover { color: #3A98D8; }
 
         .main-nav {
-            background-color: var(--white); padding: 15px 20px;
+            background-color: #FFFFFF; padding: 15px 20px;
             display: flex; justify-content: center; align-items: center; gap: 48px;
-            box-shadow: 0 4px 6px rgba(var(--charcoal-rgb),0.12);
+            box-shadow: 0 4px 6px #1E293B1F;
         }
-        .home-link { color: var(--fresh-blue); font-weight: bold; font-size: 15px; }
+        .home-link { color: #3A98D8; font-weight: bold; font-size: 15px; }
         .nav-links { display: flex; gap: 28px; align-items: center; }
-        .nav-links a { color: var(--fresh-blue); font-weight: bold; font-size: 14px; }
+        .nav-links a { color: #3A98D8; font-weight: bold; font-size: 14px; }
         .btn-report {
-            background-color: var(--fresh-blue); color: #FFEB3B !important;
-            padding: 8px 20px; border-radius: 20px; border: 2px solid var(--fresh-blue);
+            background-color: #3A98D8; color: #FFEB3B !important;
+            padding: 8px 20px; border-radius: 20px; border: 2px solid #3A98D8;
         }
 
-        
+
         .form-wrapper {
             flex: 1;
             display: flex;
@@ -71,24 +63,24 @@
         }
 
         .report-container {
-            background: var(--white);
+            background: #FFFFFF;
             width: 100%;
             max-width: 550px;
-            
-            padding: 0 40px 30px 40px; 
+
+            padding: 0 40px 30px 40px;
             border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(var(--charcoal-rgb), 0.08);
+            box-shadow: 0 10px 25px #1E293B14;
             box-sizing: border-box;
-            overflow: hidden; 
+            overflow: hidden;
         }
 
-        
+
         .report-container h2 {
             text-align: center;
-            color: var(--white);
-            background-color: var(--fresh-blue);
+            color: #FFFFFF;
+            background-color: #3A98D8;
             /* Negative margin stretches it to the edges of the container */
-            margin: 0 -40px 25px -40px; 
+            margin: 0 -40px 25px -40px;
             padding: 20px;
             font-size: 24px;
         }
@@ -99,18 +91,18 @@
             font-size: 14px;
         }
 
-        
+
         .form-group { margin-bottom: 20px; }
 
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
-            color: var(--charcoal);
+            color: #1E293B;
             font-size: 15px;
         }
 
-        .form-group select, 
+        .form-group select,
         .form-group textarea,
         .form-group input[type="file"] {
             width: 100%;
@@ -123,10 +115,10 @@
             background-color: #fafafa;
         }
 
-        .form-group select:focus, 
+        .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--fresh-blue);
+            border-color: #3A98D8;
         }
 
         .form-group textarea {
@@ -134,15 +126,15 @@
             height: 100px;
         }
 
-        
+
         .btn-submit {
             display: block;
             width: 100%;
             max-width: 150px;
-            margin-left: auto; 
+            margin-left: auto;
             padding: 12px;
-            background: linear-gradient(135deg, var(--fresh-blue), #236FAE);
-            color: var(--white);
+            background: linear-gradient(135deg, #3A98D8, #236FAE);
+            color: #FFFFFF;
             border: none;
             border-radius: 8px;
             font-weight: bold;
@@ -155,16 +147,16 @@
         }
         .btn-submit:disabled { opacity: 1; }
 
-        
+
         footer {
-            background-color: var(--charcoal); color: var(--white);
+            background-color: #1E293B; color: #FFFFFF;
             padding: 30px 20px; display: flex; justify-content: space-between; align-items: center;
-            border-top: 4px solid var(--fresh-blue);
+            border-top: 4px solid #3A98D8;
         }
-        .footer-links a { color: var(--white); margin-right: 20px; font-size: 14px; }
+        .footer-links a { color: #FFFFFF; margin-right: 20px; font-size: 14px; }
         .footer-logo img { width: 60px; height: 60px; object-fit: contain; }
 
-        
+
         @media (max-width: 700px) {
             .utility-bar { flex-wrap: wrap; gap: 10px; padding: 12px 16px; }
             .left-text, .logo-center, .utility-bar .right-links { flex: 1 1 100%; text-align: center; }
@@ -180,7 +172,7 @@
 </head>
 <body>
 
-    
+
     <header class="site-header">
         <div class="utility-bar">
             <div class="left-text">This site is for reporting garbage in Kawempe only</div>
@@ -201,14 +193,14 @@
         </nav>
     </header>
 
-    
+
     <div class="form-wrapper">
         <div class="report-container">
-            
+
             <h2>Report Garbage</h2>
             <p class="form-notice">This is a visual demo. Reports are not submitted.</p>
             <div>
-                
+
                 <div class="form-group">
                     <label for="zone">Parish or zone (Enter location)</label>
                     <select id="zone">
@@ -258,7 +250,7 @@
                     <input type="file" id="photo" accept="image/*">
                 </div>
 
-                
+
                 <button type="button" class="btn-submit" disabled>Submit</button>
 
             </div>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Management Tips | Zone2560</title>
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            src: url('fonts/Roboto.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+        }
+
+        :root {
+            --white: #FFFFFF;
+            --light-grey: #F4F5F6;
+            --fresh-blue: #3A98D8;
+            --amber: #FFEB3B;
+            --charcoal: #1E293B;
+            --charcoal-rgb: 30, 41, 59;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--light-grey);
+            color: var(--charcoal);
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        h1, h2, h3 { font-family: 'Roboto', Arial, sans-serif; }
+        a { text-decoration: none; }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .utility-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 12px 30px;
+            background: var(--white);
+            box-shadow: 0 2px 4px rgba(var(--charcoal-rgb), 0.08);
+            font-size: 14px;
+        }
+
+        .left-text, .logo-center, .right-links { flex: 1; }
+        .left-text { font-weight: bold; }
+        .logo-center { text-align: center; }
+        .logo-center img { width: 58px; height: 58px; object-fit: contain; }
+        .right-links { text-align: right; white-space: nowrap; }
+        .right-links a {
+            margin-left: 14px;
+            color: var(--charcoal);
+            font-weight: bold;
+        }
+        .right-links a:hover { color: var(--fresh-blue); }
+
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            padding: 15px 20px;
+            background: var(--white);
+            box-shadow: 0 4px 6px rgba(var(--charcoal-rgb), 0.12);
+        }
+
+        .home-link, .nav-links a {
+            color: var(--fresh-blue);
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .home-link { font-size: 15px; }
+        .nav-links { display: flex; align-items: center; gap: 28px; }
+        .btn-report {
+            padding: 8px 20px;
+            border: 2px solid var(--fresh-blue);
+            border-radius: 20px;
+            background: var(--fresh-blue);
+            color: #FFEB3B !important;
+        }
+
+        .page-intro {
+            padding: 44px 20px;
+            background: var(--charcoal);
+            color: var(--white);
+            text-align: center;
+        }
+        .page-intro h1 { margin: 0 0 12px; font-size: clamp(28px, 4vw, 40px); }
+        .page-intro p { max-width: 760px; margin: 0 auto; line-height: 1.6; }
+
+        main {
+            width: min(1100px, calc(100% - 40px));
+            margin: 36px auto;
+        }
+        .tips-heading { margin-bottom: 20px; }
+        .tips-heading h2, .schedule-section h2 { margin: 0 0 8px; }
+        .tips-heading p, .schedule-section p { margin: 0; line-height: 1.6; }
+
+        .tips-accordion { display: grid; gap: 12px; }
+        .accordion-item {
+            overflow: hidden;
+            border-radius: 8px;
+            background: var(--white);
+            box-shadow: 0 3px 12px rgba(var(--charcoal-rgb), 0.1);
+        }
+        .accordion-item summary {
+            padding: 18px 20px;
+            color: var(--fresh-blue);
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            list-style: none;
+        }
+        .accordion-item summary::-webkit-details-marker { display: none; }
+        .accordion-item summary::after {
+            content: "+";
+            float: right;
+            margin-left: 12px;
+            color: var(--charcoal);
+        }
+        .accordion-item[open] summary::after { content: "\2212"; }
+        .accordion-content {
+            padding: 0 20px 20px;
+            border-top: 1px solid var(--light-grey);
+            line-height: 1.65;
+        }
+        .accordion-content h3 {
+            margin: 18px 0 8px;
+            color: var(--charcoal);
+            font-size: 16px;
+        }
+        .accordion-content p { margin: 14px 0 0; }
+        .accordion-content ul { margin: 10px 0 0; padding-left: 22px; }
+        .accordion-content li + li { margin-top: 6px; }
+
+        .schedule-section {
+            margin-top: 36px;
+            padding: 24px;
+            border-radius: 8px;
+            background: var(--white);
+            box-shadow: 0 3px 12px rgba(var(--charcoal-rgb), 0.08);
+        }
+        .schedule-link {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 11px 20px;
+            border-radius: 6px;
+            background: var(--fresh-blue);
+            color: var(--white);
+            font-weight: bold;
+        }
+        footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 30px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            border-top: 4px solid var(--fresh-blue);
+        }
+        .footer-links a {
+            color: var(--white);
+            margin-right: 20px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .footer-links a:hover { color: var(--amber); text-decoration: underline; }
+        .footer-logo img {
+            display: block;
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+        .utility-bar a:focus-visible, .main-nav a:focus-visible,
+        .accordion-item summary:focus-visible, .schedule-link:focus-visible, footer a:focus-visible {
+            outline: 3px solid var(--amber);
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 700px) {
+            .utility-bar { flex-wrap: wrap; justify-content: center; padding: 12px 16px; }
+            .left-text, .logo-center, .right-links { flex: 1 1 100%; text-align: center; }
+            .right-links { white-space: normal; }
+            .right-links a { display: inline-block; margin: 5px 8px; }
+            .main-nav { flex-wrap: wrap; gap: 14px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
+            .page-intro { padding: 34px 20px; }
+            footer { flex-direction: column; gap: 20px; text-align: center; }
+            .footer-links a { display: inline-block; margin: 5px 10px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="utility-bar">
+            <div class="left-text">The official website of Kawempe Division</div>
+            <div class="logo-center">
+                <img src="images/Zone2560%20logo.jpeg" alt="Zone 2560 Logo">
+            </div>
+            <div class="right-links">
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="admin%20login.html">Admin Login</a>
+            </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="home.html" class="home-link">Home</a>
+            <div class="nav-links">
+                <a href="waste_tips.html" aria-current="page">Waste Tips</a>
+                <a href="track%20reports.html">Track Reports</a>
+                <a href="report%20garbage.html" class="btn-report">Report Garbage</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-intro">
+        <h1>Waste Management Tips &amp; Guidelines</h1>
+        <p>Explore our practical guidelines on safe waste handling across Kawempe, or check collection schedules for your parish.</p>
+    </section>
+
+    <main>
+        <div class="tips-heading">
+            <h2>Waste Management Handling Guidelines</h2>
+            <p>Open a topic below to learn more about safe waste handling and disposal:</p>
+        </div>
+
+        <div class="tips-accordion">
+            <details class="accordion-item">
+                <summary>1. Sorting &amp; Segregation</summary>
+                <div class="accordion-content">
+                    <p>Separate different types of household waste before collection to reduce contamination and make recycling and composting easier.</p>
+                    <h3>How to sort waste</h3>
+                    <ul>
+                        <li>Use separate bins for wet organic waste, such as food scraps and garden waste, and dry waste, such as plastics, glass, and metals.</li>
+                        <li>Keep wet waste in a covered container to help prevent leakage and pests.</li>
+                        <li>Rinse and dry recyclable items before placing them in the dry waste bin.</li>
+                    </ul>
+                    <h3>Why sorting matters</h3>
+                    <ul>
+                        <li>Reduces contamination of recyclables, making recovery more efficient.</li>
+                        <li>Keeps suitable organic material available for composting.</li>
+                        <li>Minimizes the amount of waste sent for final disposal.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary>2. Reduce, Reuse &amp; Recycle</summary>
+                <div class="accordion-content">
+                    <p>Reducing what we throw away, reusing items, and recycling suitable materials all help conserve resources and reduce litter.</p>
+                    <h3>Reduce waste</h3>
+                    <ul>
+                        <li>Buy only what you need to avoid excess waste.</li>
+                        <li>Choose products with minimal packaging where practical.</li>
+                        <li>Use reusable bags and containers instead of single-use alternatives.</li>
+                    </ul>
+                    <h3>Reuse items</h3>
+                    <ul>
+                        <li>Repurpose clean containers and jars for storage.</li>
+                        <li>Donate usable clothes and household items rather than throwing them away.</li>
+                        <li>Repair items when practical to extend their useful life.</li>
+                    </ul>
+                    <h3>Recycle responsibly</h3>
+                    <ul>
+                        <li>Separate accepted recyclables such as plastics, glass, metals, and paper.</li>
+                        <li>Clean and dry recyclables before storage or handover.</li>
+                        <li>Confirm accepted materials and collection arrangements with your local collector.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary>3. Composting Organic Waste</summary>
+                <div class="accordion-content">
+                    <p>Composting is the natural breakdown of suitable organic material into a soil-like material that can improve garden soil.</p>
+                    <h3>Benefits of composting</h3>
+                    <ul>
+                        <li>Reduces the amount of organic waste sent for final disposal.</li>
+                        <li>Creates a useful soil improver for gardens.</li>
+                        <li>Helps retain soil moisture and supports healthy soil structure.</li>
+                    </ul>
+                    <h3>How to start</h3>
+                    <ul>
+                        <li>Choose a shaded, well-drained spot and use a ventilated bin or covered heap.</li>
+                        <li>Layer fruit and vegetable scraps with dry leaves or other dry plant material.</li>
+                        <li>Keep the pile damp, not waterlogged, and turn it occasionally to let air in.</li>
+                        <li>Avoid meat, dairy, oils, and hazardous waste in a basic home compost pile.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary>4. Hazardous &amp; Medical Waste</summary>
+                <div class="accordion-content">
+                    <p>Some household and medical items can injure people or contaminate the environment. Keep them separate from ordinary waste and use approved disposal arrangements.</p>
+                    <h3>Keep hazardous waste separate</h3>
+                    <ul>
+                        <li>Keep batteries, chemicals, paint, and other hazardous items out of household waste bags and community skips.</li>
+                        <li>Do not burn, bury, or pour chemicals into drains or onto the ground.</li>
+                        <li>Store items in their original, labelled containers where possible, away from children and heat.</li>
+                    </ul>
+                    <h3>Handle medical sharps safely</h3>
+                    <ul>
+                        <li>Never put loose needles, syringes, or broken medical sharps in household rubbish or recycling.</li>
+                        <li>Do not recap, bend, or handle a used needle. If safe to do so, place it in a proper puncture-resistant sharps container.</li>
+                        <li>Ask a health facility or local waste authority how to return or dispose of sharps safely.</li>
+                    </ul>
+                    <h3>Find an approved disposal option</h3>
+                    <p>Contact a nearby health facility or the local waste authority for current collection and drop-off instructions. Do not mix these items with general waste unless an authorised service specifically directs you to do so.</p>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary>5. Using Community Skips</summary>
+                <div class="accordion-content">
+                    <p>Community skips are designated collection containers for household waste. Use the skip assigned to your area and follow any posted instructions.</p>
+                    <h3>Guidelines for using community skips</h3>
+                    <ul>
+                        <li>Place household waste inside the skip in tied bags; do not leave it on the ground nearby.</li>
+                        <li>Do not put hazardous, medical, or burning waste in a community skip.</li>
+                        <li>Do not overfill the skip, and follow posted rules and collection guidance.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        
+        <section class="schedule-section">
+            <h2>Collection Schedules &amp; Skip Points</h2>
+            <p>Check the collection schedules for your parish and zone below. Ensure you place waste in the designated skip points on collection days.</p>
+            <a href="schedules.html" class="schedule-link">View Collection Schedules</a>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <span aria-hidden="true"> | </span>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+        </div>
+        <div class="footer-logo">
+            <img src="images/Zone2560%20logo.jpeg" alt="Zone 2560 Logo">
+        </div>
+    </footer>
+</body>
+</html>

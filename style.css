@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('./Roboto.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('./Poppins-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('./Poppins-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100 900;
+}
+
+:root {
+    --white: #FFFFFF;
+    --light-grey: #F4F5F6;
+    --fresh-blue: #3A98D8;
+    --amber: #FFEB3B;
+    --charcoal: #1E293B;
+    --charcoal-rgb: 30, 41, 59;
+}

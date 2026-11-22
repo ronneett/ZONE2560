@@ -1,25 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Zone2560</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        @font-face {
-            font-family: 'Roboto';
-            src: url('fonts/Roboto.ttf') format('truetype');
-            font-style: normal;
-            font-weight: 100 900;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Poppins';
-            src: url('fonts/Poppins-Bold.ttf') format('truetype');
-            font-style: normal;
-            font-weight: 700;
-            font-display: swap;
-        }
 
         :root {
             --white: #FFFFFF;
@@ -315,11 +301,5 @@
         </main>
     </div>
 
-    <script>
-        if (sessionStorage.getItem('zone2560AdminAuthenticated') !== 'true') {
-            window.location.replace('admin%20login.html');
-        }
-
-    </script>
 </body>
 </html>

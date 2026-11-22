@@ -1,4 +1,3 @@
-﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,37 +7,31 @@
     
     <style>
         @font-face {
+            font-family: 'Roboto';
+            src: url('fonts/Roboto.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+        }
+
+        @font-face {
             font-family: 'Poppins';
-            src: url('Poppins/Poppins-Regular.ttf') format('truetype');
+            src: url('fonts/Poppins-Regular.ttf') format('truetype');
             font-style: normal;
             font-weight: 400;
         }
 
         @font-face {
             font-family: 'Poppins';
-            src: url('Poppins/Poppins-Bold.ttf') format('truetype');
+            src: url('fonts/Poppins-Bold.ttf') format('truetype');
             font-style: normal;
             font-weight: 700;
         }
 
         @font-face {
             font-family: 'Montserrat';
-            src: url('Montserrat-VariableFont_wght.ttf') format('truetype');
+            src: url('fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
             font-style: normal;
-            font-weight: 100 900;
-        }
-
-        @font-face {
-            font-family: 'Roboto';
-            src: url('Roboto/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
-            font-style: normal;
-            font-weight: 100 900;
-        }
-
-        @font-face {
-            font-family: 'Roboto';
-            src: url('Roboto/Roboto-Italic-VariableFont_wdth,wght.ttf') format('truetype');
-            font-style: italic;
             font-weight: 100 900;
         }
 
@@ -46,7 +39,7 @@
             --white: #FFFFFF;
             --light-grey: #F4F5F6;
             --fresh-blue: #3A98D8;
-            --amber: #B89E2D;
+            --amber: #FFEB3B;
             --charcoal: #1E293B;
             --charcoal-rgb: 30, 41, 59;
         }
@@ -162,9 +155,12 @@
 
         
         .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background-image:
                 linear-gradient(rgba(var(--charcoal-rgb), 0.08), rgba(var(--charcoal-rgb), 0.08)),
-                url('kawempe.jpeg');
+                url('images/Kawempe.jpeg');
             background-size: cover;
             background-position: center 85%;
             height: 500px;
@@ -172,6 +168,20 @@
             padding: 0;
             border: 2px solid rgba(var(--charcoal-rgb), 0.32);
             box-shadow: inset 0 0 55px rgba(var(--charcoal-rgb), 0.38);
+        }
+        .hero-title {
+            margin: 0;
+            color: var(--light-grey);
+            font-size: clamp(32px, 6vw, 64px);
+            text-align: center;
+            text-shadow: 0 3px 12px rgba(var(--charcoal-rgb), 0.9);
+        }
+        .hero-subtitle {
+            margin: 8px 0 0;
+            color: var(--light-grey);
+            font-size: clamp(16px, 2.5vw, 22px);
+            text-align: center;
+            text-shadow: 0 2px 8px rgba(var(--charcoal-rgb), 0.9);
         }
 
         .hero-panel {
@@ -187,7 +197,7 @@
             padding: 20px;
             box-sizing: border-box;
             border-radius: 8px;
-            background: var(--white);
+            background: var(--light-grey);
             box-shadow: 0 4px 15px rgba(var(--charcoal-rgb),0.14);
         }
 
@@ -201,9 +211,9 @@
             font-family: "Montserrat";
             font-weight: 400;
             font-style: normal;
-            border-radius: 0;
-            background: transparent;
-            box-shadow: none;
+            border-radius: 8px;
+            background: var(--light-grey);
+            box-shadow: 0 2px 8px rgba(var(--charcoal-rgb), 0.08);
         }
         
         .hero-box h2 {
@@ -270,9 +280,6 @@
 
         .box-center {
             text-align: center;
-            background: transparent;
-            box-shadow: none;
-            border-left: 1px solid rgba(var(--charcoal-rgb), 0.14);
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -356,7 +363,7 @@
             padding: 15px;
             box-sizing: border-box;
             text-align: center;
-            background: linear-gradient(rgba(var(--charcoal-rgb), 0.4), rgba(var(--charcoal-rgb), 0.9)), url('kawempe.jpeg');
+            background: linear-gradient(rgba(var(--charcoal-rgb), 0.4), rgba(var(--charcoal-rgb), 0.9)), url('kawempe.webp');
             background-size: cover;
             background-position: center;
             transition: transform 0.2s;
@@ -512,7 +519,7 @@
         <div class="utility-bar">
             <div class="left-text">This site is for reporting garbage in Kawempe only</div>
             <div class="logo-center">
-                <img src="zone2560-logo.jpeg" alt="Zone 2560 Logo">
+                <img src="images/Zone2560%20logo.jpeg" alt="Zone 2560 Logo">
             </div>
             <div class="right-links">
                 <a href="about.html">About Us</a>
@@ -522,18 +529,23 @@
         </div>
 
         <nav class="main-nav">
-            <a href="index.html" class="home-link" aria-current="page">Home</a>
+            <a href="home.html" class="home-link" aria-current="page">Home</a>
             
             <div class="nav-links">
                 <a href="waste_tips.html">Waste Tips</a>
-                <a href="track.html">Track Reports</a>
-                <a href="report.html" class="btn-report">Report Garbage</a>
+                <a href="track%20reports.html">Track Reports</a>
+                <a href="report%20garbage.html" class="btn-report">Report Garbage</a>
             </div>
         </nav>
     </header>
 
     
-    <div class="hero" aria-hidden="true"></div>
+    <section class="hero" aria-label="Welcome">
+        <div>
+            <h1 class="hero-title">Welcome, Our Community Hero!</h1>
+            <p class="hero-subtitle">Keep Kawempe Clean</p>
+        </div>
+    </section>
     <section class="hero-panel" aria-label="How it works and most active zones">
             <div class="hero-box box-left">
                 <div class="how-it-works-text">
@@ -543,21 +555,21 @@
                         <li>Track</li>
                         <li>Follow up</li>
                     </ol>
-                    <a href="report.html" class="btn-report hero-report-button">Report Garbage</a>
+                    <a href="report%20garbage.html" class="btn-report hero-report-button">Report Garbage</a>
                 </div>
-                <div class="how-it-works-visual" aria-hidden="true">
-                    <img src="img.png" alt="">
+                <div class="how-it-works-visual">
+                    <img src="images/img.png" alt="Hands interacting with a phone to report and track garbage">
                 </div>
             </div>
 
             <div class="hero-box box-center">
                 <h2>Most Active Zones</h2>
                 <ol>
-                    <li><span class="leaderboard-rank" aria-hidden="true">1</span><span>Kawempe Zone A</span></li>
-                    <li><span class="leaderboard-rank" aria-hidden="true">2</span><span>Bwaise</span></li>
-                    <li><span class="leaderboard-rank" aria-hidden="true">3</span><span>Mpererwe</span></li>
-                    <li><span class="leaderboard-rank" aria-hidden="true">4</span><span>Kanyanya</span></li>
-                    <li><span class="leaderboard-rank" aria-hidden="true">5</span><span>Kawempe Zone B</span></li>
+                    <li><span class="leaderboard-rank" aria-hidden="true">1</span><span>Lule Zone</span></li>
+                    <li><span class="leaderboard-rank" aria-hidden="true">2</span><span>Industrial Area</span></li>
+                    <li><span class="leaderboard-rank" aria-hidden="true">3</span><span>Ttula</span></li>
+                    <li><span class="leaderboard-rank" aria-hidden="true">4</span><span>Katoogo</span></li>
+                    <li><span class="leaderboard-rank" aria-hidden="true">5</span><span>Bubajwe</span></li>
                 </ol>
             </div>
     </section>
@@ -571,16 +583,16 @@
     
     <section class="tips-section">
         <div class="tips-grid">
-            <a href="tip-1.html" class="tip-card" style="background-image: linear-gradient(rgba(var(--charcoal-rgb), 0.4), rgba(var(--charcoal-rgb), 0.9)), url('illegal-landfills.jpeg');">
+            <a href="tip-1.html" class="tip-card" style="background-image: linear-gradient(rgba(var(--charcoal-rgb), 0.4), rgba(var(--charcoal-rgb), 0.9)), url('images/Illegal%20landfills.jpeg');">
                 <h3>Illegal Landfills</h3>
             </a>
-            <a href="tip-2.html" class="tip-card" style="background-image: linear-gradient(rgba(var(--charcoal-rgb), 0.4), rgba(var(--charcoal-rgb), 0.9)), url('clogged-drainage.jpeg');">
+            <a href="tip-2.html" class="tip-card" style="background-image: linear-gradient(rgba(var(--charcoal-rgb), 0.4), rgba(var(--charcoal-rgb), 0.9)), url('images/Clogged%20drainage.jpeg');">
                 <h3>Clogged Drainage</h3>
             </a>
-            <a href="tip-3.html" class="tip-card" style="background-image: linear-gradient(rgba(var(--charcoal-rgb), 0.4), rgba(var(--charcoal-rgb), 0.9)), url('recycle.jpeg');">
+            <a href="tip-3.html" class="tip-card" style="background-image: linear-gradient(rgba(var(--charcoal-rgb), 0.4), rgba(var(--charcoal-rgb), 0.9)), url('images/Recycling.jpeg');">
                 <h3>Recycling Trash</h3>
             </a>
-            <a href="tip-4.html" class="tip-card" style="background-image: linear-gradient(rgba(var(--charcoal-rgb), 0.4), rgba(var(--charcoal-rgb), 0.9)), url('littering.jpeg');">
+            <a href="tip-4.html" class="tip-card" style="background-image: linear-gradient(rgba(var(--charcoal-rgb), 0.4), rgba(var(--charcoal-rgb), 0.9)), url('images/Literring.jpeg');">
                 <h3>Littering</h3>
             </a>
         </div>
@@ -598,9 +610,10 @@
             <span aria-hidden="true"> | </span>
             <a href="contact.html">Contact</a>
             <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
         </div>
         <div class="footer-logo">
-            <img src="zone2560-logo.jpeg" alt="Zone 2560 Logo">
+            <img src="images/Zone2560%20logo.jpeg" alt="Zone 2560 Logo">
         </div>
     </footer>
 
